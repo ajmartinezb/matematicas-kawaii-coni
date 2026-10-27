@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Kawaii Kanban de Matemáticas 🌸✨ | Cálculo Mental para Niños y Jóvenes</title>
+  <!-- Google Fonts Kawaii: Fredoka & Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Banner Superior con Links Rápidos -->
+  <div class="top-banner">
+    <span>🌸 ¡Bienvenidos al Portal Kawaii Kanban de Matemáticas para Niños y Jóvenes! 🇨🇱✨</span>
+    <a href="grandes-numeros.html" class="sister-page-pill">🌸 Ir a Módulo 1: Grandes Números (1.570.000 × 2)</a>
+    <a href="tiendita.html" class="sister-page-pill">🛍️ Ir a Módulo 2: Tablas 1–12, Ventas y Vuelto 💵</a>
+  </div>
+
+  <!-- Header Principal -->
+  <header class="studio-header">
+    <div class="header-inner">
+      <a href="#inicio" class="brand-logo">
+        <div class="brand-mascot">🐱</div>
+        <div>
+          <div class="brand-title">Portal Kawaii Kanban de Matemáticas 🌸</div>
+          <div class="brand-subtitle">Cálculo Mental Visual sin Estrés • Para Niños y Jóvenes • Español Chileno 🇨🇱</div>
+        </div>
+      </a>
+
+      <div class="header-stats">
+        <a href="grandes-numeros.html" class="stat-pill" style="background:#FFD6E8; border-color:#FF6B9E; color:#8A1C4A;">
+          <span>🌸</span> <span>Módulo 1: Grandes Números</span>
+        </a>
+        <a href="tiendita.html" class="stat-pill" style="background:#C1F7DC; border-color:#4CC98A; color:#0F5C35;">
+          <span>🛍️</span> <span>Módulo 2: Tablas y Vuelto</span>
+        </a>
+        <button id="toggle-sound-btn" class="sound-btn" onclick="KawaiiSound.toggleSound()">
+          🔊 Voz Chilena Kawaii: ON
+        </button>
+      </div>
+    </div>
+
+    <!-- Barra de Navegación del Portal -->
+    <nav class="studio-nav" aria-label="Navegación del portal principal">
+      <div class="nav-links-container">
+        <a href="#inicio" class="nav-link active">🏠 1. Bienvenida</a>
+        <a href="#modulos" class="nav-link">🚀 2. Mundos y Páginas Disponibles</a>
+        <a href="#metodo-kanban" class="nav-link">🚦 3. ¿Cómo funciona el Método Kanban?</a>
+        <a href="#proximos-mundos" class="nav-link">🌟 4. Próximas Páginas</a>
+        <a href="grandes-numeros.html" class="nav-link" style="background:#FFD6E8; border-color:#FF6B9E; color:#8A1C4A;">🌸 Abrir: Grandes Números ➡️</a>
+        <a href="tiendita.html" class="nav-link" style="background:#FFF3B0; border-color:#F4B942; color:#7A5200;">🛍️ Abrir: Tiendita 1–12 y Vuelto ➡️</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenedor Principal del Portal -->
+  <main class="portal-container">
+
+    <!-- ====================================================================
+         SECCIÓN 1: HERO DE BIENVENIDA GENERAL (#inicio)
+         ==================================================================== -->
+    <section id="inicio" class="studio-section">
+      <span class="section-badge">🌸 Portal Principal • Matemáticas Kawaii para Niños y Jóvenes</span>
+      <div class="hero-grid">
+        <div>
+          <h1 class="section-title" style="font-size:2.2rem; color:var(--pink-dark);">
+            ¡Aprende Matemáticas al tiro y sin bloqueos con Fichas Kawaii Kanban! 🎀✨
+          </h1>
+          <div class="coni-welcome-bubble">
+            <p style="font-weight:700; font-size:1.04rem;">
+              💬 <strong>¿Cachai cuando te hacen una pregunta de matemáticas rápido y tu mente queda en blanco?</strong> ¡No es porque te cuesten las matemáticas! Es porque intentar calcular todo de golpe produce <strong>Muri (Sobrecarga Mental)</strong>.
+            </p>
+            <p style="margin-top:8px; font-weight:700; color:var(--text-muted);">
+              En este portal usamos el poder visual de <strong>Kanban</strong>: partimos cualquier problema en <strong>Fichas Kawaii de colores</strong>, estacionamos los ceros en el <strong>Parking Lot</strong> y resolvemos <strong>solo 1 ficha a la vez (Límite WIP = 1)</strong>. ¡Elige por cuál mundo quieres partir hoy!
+            </p>
+          </div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
+            <a href="grandes-numeros.html" class="btn-kawaii">
+              🌸 Entrar a Módulo 1: Grandes Números
+            </a>
+            <a href="tiendita.html" class="btn-kawaii btn-mint">
+              🛍️ Entrar a Módulo 2: Tablas 1–12 y Vuelto
+            </a>
+            <button class="btn-kawaii btn-yellow"
+                    onclick="KawaiiSound.playAudioOrSpeak('', '¡Hola! Bienvenidos al Portal Kawaii Kanban de Matemáticas. Elige tu mundo favorito para entrenar tu mente paso a paso sin estrés.')">
+              🔊 Escuchar Bienvenida 🇨🇱
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-illustration-box">
+          <img src="assets/hero-coni-kawaii.jpg" alt="Portal Kawaii Kanban de Matemáticas con mascotas Mochi, Usagi y Hoshi" />
+          <div style="margin-top:10px; font-family:'Fredoka',sans-serif; font-size:0.94rem; color:var(--pink-dark);">
+            ✨ Mochi 🐱, Usagi 🐰, Kuma 🐼 y Hoshi 🦄 te acompañan en cada módulo ✨
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECCIÓN 2: CATÁLOGO DE PÁGINAS / MÓDULOS ACTIVOS (#modulos)
+         ==================================================================== -->
+    <section id="modulos" class="studio-section">
+      <span class="section-badge">🚀 Catálogo de Páginas • Elige tu Entrenamiento</span>
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Mundos Interactivos Disponibles</h2>
+          <p class="section-subtitle">
+            Haz clic en cualquiera de las páginas para abrir su Video-Estudio con voz chilena, Tablero Kanban interactivo, Ejemplos y Pruebas.
+          </p>
+        </div>
+      </div>
+
+      <div class="portal-modules-grid">
+        <!-- MÓDULO 1: GRANDES NÚMEROS -->
+        <div class="portal-module-card">
+          <img src="assets/kanbahn-kawaii.jpg" alt="Módulo 1: Multiplicación Mental de Grandes Números" class="portal-card-thumb" />
+          <div class="portal-tag-row">
+            <span class="portal-tag-pill">🌸 Módulo 1</span>
+            <span class="portal-tag-pill yellow">⭐ Reto 1.570.000 × 2</span>
+            <span class="portal-tag-pill mint">🔊 Voz Chilena</span>
+          </div>
+          <h3 style="font-size:1.5rem; color:var(--pink-dark);">
+            Estudio Kawaii Kanban: Multiplicación Mental de Grandes Números
+          </h3>
+          <p style="font-weight:700; color:var(--text-muted); font-size:0.95rem;">
+            Domina cómo multiplicar millones y cientos de miles en tu cabeza en 3 segundos. Incluye la metáfora de la autopista <strong>Kan-Bahn</strong>, el estacionamiento de ceros (<strong>Parking Lot</strong>), video animado y tablero interactivo.
+          </p>
+          <div style="background:var(--surface-soft); border:2px dashed #FFB3D1; border-radius:14px; padding:10px 14px; font-size:0.85rem; font-weight:800;">
+            ✨ <strong>Lo que aprenderás:</strong><br>
+            • Resolver <code>1.570.000 × 2 = 3.140.000</code> de 3 formas distintas.<br>
+            • Separar en Fichas Rosa (Millones), Amarilla (Cent. de Mil) y Menta (Dec. de Mil).<br>
+            • 8 ejemplos guiados + 4 niveles de pruebas interactivas.
+          </div>
+          <div style="margin-top:auto; padding-top:8px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="grandes-numeros.html" class="btn-kawaii" style="flex:1;">
+              🌸 Abrir Estudio de Grandes Números ➡️
+            </a>
+          </div>
+        </div>
+
+        <!-- MÓDULO 2: TIENDITA KAWAII, TABLAS 1-12, VENTAS Y VUELTO -->
+        <div class="portal-module-card module-mint">
+          <img src="assets/kmm-mascot-badges.jpg" alt="Módulo 2: Tiendita Kawaii Kanban, Tablas del 1 al 12, Ventas y Vuelto" class="portal-card-thumb" />
+          <div class="portal-tag-row">
+            <span class="portal-tag-pill mint">🛍️ Módulo 2</span>
+            <span class="portal-tag-pill yellow">🔢 Tablas 1 al 12</span>
+            <span class="portal-tag-pill">💵 Ventas y Vuelto</span>
+          </div>
+          <h3 style="font-size:1.5rem; color:#0F5C35;">
+            Tiendita Kawaii Kanban: Tablas del 1 al 12, Ventas y Vuelto
+          </h3>
+          <p style="font-weight:700; color:var(--text-muted); font-size:0.95rem;">
+            Aprende todas las tablas del 1 al 12 con trucos visuales (sin memorizar como robot), cobra productos en pesos chilenos y entrega vuelto al tiro usando <strong>El Puente del Vuelto</strong>.
+          </p>
+          <div style="background:#F2FBF7; border:2px dashed #4CC98A; border-radius:14px; padding:10px 14px; font-size:0.85rem; font-weight:800; color:#0F5C35;">
+            ✨ <strong>Lo que aprenderás:</strong><br>
+            • El truco de la docena (<code>×12 = ×10 + ×2</code>) y del nueve (<code>×9 = ×10 − 1</code>).<br>
+            • Caja Registradora con billetes de <code>$1.000</code> a <code>$20.000</code>.<br>
+            • Dar vuelto sumando hacia arriba sin restas con llevadas.
+          </div>
+          <div style="margin-top:auto; padding-top:8px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="tiendita.html" class="btn-kawaii btn-mint" style="flex:1;">
+              🛍️ Abrir Tiendita Kawaii y Tablas 1–12 ➡️
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECCIÓN 3: LAS 4 REGLAS MÁGICAS DE KANBAN EN TODAS LAS PÁGINAS (#metodo-kanban)
+         ==================================================================== -->
+    <section id="metodo-kanban" class="studio-section">
+      <span class="section-badge">🚦 El Secreto Visual • ¿Por qué funciona tan bien?</span>
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Los 4 Superpoderes Kawaii Kanban que usamos en cada Página</h2>
+          <p class="section-subtitle">
+            Las mismas reglas que hacen fluir el tránsito sin tacos hacen que tu mente calcule rápido y con confianza.
+          </p>
+        </div>
+      </div>
+
+      <div class="Star-flow-grid">
+        <div class="kawaii-ticket ticket-millions">
+          <div class="ticket-top-bar"><span>🍓 PODER #1</span><span>Visualizar</span></div>
+          <div class="ticket-number">Fichas de Colores</div>
+          <div class="ticket-subtext">Partimos cualquier número grande o tabla difícil en fichas chiquititas por color.</div>
+        </div>
+
+        <div class="kawaii-ticket ticket-hundred-k">
+          <div class="ticket-top-bar"><span>🍋 PODER #2</span><span>Límite WIP = 1</span></div>
+          <div class="ticket-number">1 Ficha a la Vez</div>
+          <div class="ticket-subtext">Tu mente solo calcula un paso a la vez: <em>«Deja de empezar y empieza a terminar»</em>.</div>
+        </div>
+
+        <div class="kawaii-ticket ticket-zeros">
+          <div class="ticket-top-bar"><span>🅿️ PODER #3</span><span>Parking Lot</span></div>
+          <div class="ticket-number">Estacionar Ceros</div>
+          <div class="ticket-subtext">Guardamos los ceros finales un ratito para multiplicar números pequeños y luego los devolvemos.</div>
+        </div>
+
+        <div class="kawaii-ticket ticket-ten-k">
+          <div class="ticket-top-bar"><span>🌿 PODER #4</span><span>Split &amp; Merge</span></div>
+          <div class="ticket-number">Separar y Juntar</div>
+          <div class="ticket-subtext">Separamos al inicio, resolvemos fácil y sumamos los resultados parciales al final.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECCIÓN 4: ESPACIO PREPARADO PARA NUEVAS PÁGINAS ESPECÍFICAS (#proximos-mundos)
+         ==================================================================== -->
+    <section id="proximos-mundos" class="studio-section">
+      <span class="section-badge">🌟 Portal en Crecimiento • Espacio para Nuevas Páginas</span>
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Próximos Mundos Kawaii Kanban</h2>
+          <p class="section-subtitle">
+            Este portal está listo para seguir sumando nuevas páginas específicas de matemáticas paso a paso.
+          </p>
+        </div>
+      </div>
+
+      <div class="studio-hub-grid">
+        <!-- Ejemplo de tarjeta lista para agregar una futura página -->
+        <div class="portal-module-card module-upcoming">
+          <div class="portal-tag-row">
+            <span class="portal-tag-pill">🔜 Próximo Módulo</span>
+          </div>
+          <h4 style="font-size:1.2rem; color:#5A2E98;">🍕 División Mental y Reparto Justo</h4>
+          <p style="font-size:0.88rem; font-weight:700; color:var(--text-muted);">
+            Espacio preparado para agregar una página dedicada a dividir cuentas entre amigos, mitades y cuartos con Fichas Kawaii.
+          </p>
+        </div>
+
+        <div class="portal-module-card module-upcoming">
+          <div class="portal-tag-row">
+            <span class="portal-tag-pill">🔜 Próximo Módulo</span>
+          </div>
+          <h4 style="font-size:1.2rem; color:#5A2E98;">🏷️ Fracciones y Descuentos de Tienda</h4>
+          <p style="font-size:0.88rem; font-weight:700; color:var(--text-muted);">
+            Espacio preparado para calcular ofertas de 10%, 20%, 25% y 50% de descuento al tiro en compras reales.
+          </p>
+        </div>
+
+        <div class="portal-module-card module-upcoming">
+          <div class="portal-tag-row">
+            <span class="portal-tag-pill">➕ Tu Próxima Página</span>
+          </div>
+          <h4 style="font-size:1.2rem; color:var(--pink-dark);">✨ Agrega aquí tu siguiente tema</h4>
+          <p style="font-size:0.88rem; font-weight:700; color:var(--text-muted);">
+            Cada nueva página específica que creemos se conectará directamente desde este catálogo principal.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/sound.js"></script>
+</body>
+</html>

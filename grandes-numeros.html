@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estudio Kawaii Kanban 🌸 | Multiplicación Mental de Grandes Números</title>
+  <!-- Google Fonts Kawaii: Fredoka & Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Banner Superior con Links Rápidos -->
+  <div class="top-banner">
+    <a href="index.html" class="sister-page-pill">🏠 Portal Principal</a>
+    <span>🌸 ¡Bienvenidos al Estudio de Cálculo Mental Kawaii Kanban para Niños y Jóvenes! ✨</span>
+    <a href="tiendita.html" class="sister-page-pill">🛍️ Ir a Tiendita: Tablas 1–12, Ventas y Vuelto 💵 ➡️</a> •
+    <a href="#caso-estrella">Ir directo a 1.570.000 × 2</a> •
+    <a href="#tablero-kanban">Abrir Tablero de Fichas</a>
+  </div>
+
+  <!-- Header Principal + Barra de Navegación con Múltiples Links -->
+  <header class="studio-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo" title="Volver al Portal Principal">
+        <div class="brand-mascot">🐱</div>
+        <div>
+          <div class="brand-title">Estudio Kawaii Kanban 🌸</div>
+          <div class="brand-subtitle">Módulo 1 • Multiplicación Mental de Grandes Números sin Sobrecarga</div>
+        </div>
+      </a>
+
+      <div class="header-stats">
+        <a href="index.html" class="stat-pill" style="background:#FFE3EE; border-color:#FF6B9E; color:#8A1C4A;" title="Ir al Portal Principal de Módulos">
+          <span>🏠</span> <span>Portal Principal</span>
+        </a>
+        <a href="#progreso-kmm" class="stat-pill kmm-badge" title="Tu Rango Kawaii Kanban">
+          <span>👑</span> <span id="header-kmm-val">N0: Pollito Curioso 🐣</span>
+        </a>
+        <a href="#progreso-kmm" class="stat-pill" title="Puntos de Experiencia Kawaii">
+          <span>⭐</span> <span id="header-xp-val">20 XP</span>
+        </a>
+        <a href="#pruebas" class="stat-pill" title="Retos Resueltos">
+          <span>✅</span> <span id="header-solved-val">0</span>
+        </a>
+        <a href="#pruebas" class="stat-pill" title="Racha Actual">
+          <span id="header-streak-val">0🔥</span>
+        </a>
+        <button id="toggle-sound-btn" class="sound-btn" onclick="KawaiiSound.toggleSound()">
+          🔊 Voz Chilena Kawaii: ON
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú Horizontal con Múltiples Links dentro de la Página -->
+    <nav class="studio-nav" aria-label="Navegación principal del estudio">
+      <div class="nav-links-container">
+        <a href="index.html" class="nav-link" style="background:#FFE3EE; border-color:#FF6B9E; color:#8A1C4A;">🏠 Portal Principal</a>
+        <a href="#inicio" class="nav-link active">🌸 1. Inicio</a>
+        <a href="#secreto-kanban" class="nav-link">🚗 2. El Secreto Kan-Bahn</a>
+        <a href="#caso-estrella" class="nav-link">⭐ 3. Reto: 1.570.000 × 2</a>
+        <a href="#video-estudio" class="nav-link">🎬 4. Video-Estudio Kawaii</a>
+        <a href="#tablero-kanban" class="nav-link">🗂️ 5. Tablero de Fichas (WIP=1)</a>
+        <a href="#ejemplos" class="nav-link">📚 6. Ejemplos Guiados</a>
+        <a href="#pruebas" class="nav-link">🎮 7. Pruebas y Quizzes</a>
+        <a href="#progreso-kmm" class="nav-link">🏆 8. Rangos y Métricas</a>
+        <a href="tiendita.html" class="nav-link" style="background:#FFF3B0; border-color:#F4B942; color:#7A5200;">🛍️ Módulo 2: Tablas 1–12 y Vuelto 💵</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Layout con Sidebar de Links + Contenido del Estudio -->
+  <div class="studio-layout">
+    <!-- Sidebar Izquierdo: Mapa del Estudio y Reglas Mágicas -->
+    <aside class="studio-sidebar">
+      <div class="sidebar-card">
+        <h3>🗺️ Mapa del Estudio</h3>
+        <ul class="quick-links-list">
+          <li><a href="index.html" style="background:#FFE3EE; border:2px solid #FF6B9E; color:#8A1C4A;">🏠 Volver al Portal Principal</a></li>
+          <li><a href="#inicio" class="active">🌸 Bienvenida al Estudio</a></li>
+          <li><a href="#secreto-kanban">🚦 Autopista Kan-Bahn (Muri)</a></li>
+          <li><a href="#caso-estrella">⭐ Solución 1.570.000 × 2</a></li>
+          <li><a href="#video-estudio">🎬 Video Animado con Voz</a></li>
+          <li><a href="#tablero-kanban">🗂️ Tablero Interactivo</a></li>
+          <li><a href="#ejemplos">🍬 8 Ejemplos con Fichas</a></li>
+          <li><a href="#pruebas">📝 Pruebas (4 Niveles)</a></li>
+          <li><a href="#progreso-kmm">📈 Rangos Kawaii (N0–N5)</a></li>
+          <li><a href="tiendita.html" style="background:#FFF3B0; border:2px solid #F4B942; color:#7A5200;">🛍️ Ir a Tiendita: Tablas 1–12 y Vuelto</a></li>
+        </ul>
+      </div>
+
+      <!-- Reglas Mágicas Explícitas -->
+      <div class="sidebar-card explicit-policies-box">
+        <h3>📜 4 Reglas Mágicas Kanban</h3>
+        <div class="policy-item">
+          <span>1️⃣</span>
+          <span><strong>Colores por Posición:</strong> 🍓 Rosa = Millones, 🍋 Amarillo = Centenas de Mil, 🌿 Menta = Decenas de Mil.</span>
+        </div>
+        <div class="policy-item">
+          <span>2️⃣</span>
+          <span><strong>Límite WIP = 1:</strong> ¡Tu mente solo multiplica 1 ficha a la vez! <em>«Deja de empezar y empieza a terminar»</em>.</span>
+        </div>
+        <div class="policy-item">
+          <span>3️⃣</span>
+          <span><strong>Parking Lot de Ceros:</strong> Los ceros del final se estacionan tranquilos y vuelven al final sin esfuerzo.</span>
+        </div>
+        <div class="policy-item">
+          <span>4️⃣</span>
+          <span><strong>Izquierda a Derecha:</strong> En cálculo mental empezamos por los millones (de mayor a menor).</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Contenido Principal del Estudio -->
+    <main class="studio-main">
+
+      <!-- ====================================================================
+           SECCIÓN 1: INICIO Y BIENVENIDA (#inicio)
+           ==================================================================== -->
+      <section id="inicio" class="studio-section">
+        <span class="section-badge">🌸 Sala 1 de 8 • Bienvenida al Estudio</span>
+        <div class="hero-grid">
+          <div>
+            <h1 class="section-title" style="font-size:2.1rem; color:var(--pink-dark);">
+              ¡Hola! 🎀 Multiplicar números gigantes en tu mente es súper fácil con Fichas Kawaii Kanban
+            </h1>
+            <div class="coni-welcome-bubble">
+              <p style="font-weight:700; font-size:1.02rem;">
+                💬 <strong>Un secreto importante para ti:</strong> Cuando te preguntan cuánto es <span class="problem-highlight-pill">1.570.000 × 2</span> de improviso y sientes que tu mente se queda en blanco, <strong>¡no es porque seas malo o mala para las matemáticas!</strong>
+              </p>
+              <p style="margin-top:8px; font-weight:700; color:var(--text-muted);">
+                En el método <strong>Kanban</strong>, eso pasa cuando intentamos procesar un trabajo gigante de una sola vez: el cerebro sufre <strong>Muri (Sobrecarga Mental)</strong>. Pero si partes el número en <strong>Fichas Kawaii de colores</strong> y procesas <strong>solo 1 ficha a la vez (Límite WIP = 1)</strong>, ¡lo sacas al tiro en 3 segundos!
+              </p>
+            </div>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
+              <a href="#caso-estrella" class="btn-kawaii">⭐ Ver cómo hacer 1.570.000 × 2</a>
+              <a href="#video-estudio" class="btn-kawaii btn-lavender">🎬 Ver Video-Estudio Animado</a>
+              <a href="#tablero-kanban" class="btn-kawaii btn-mint">🗂️ Jugar en el Tablero Kanban</a>
+            </div>
+          </div>
+
+          <div class="hero-illustration-box">
+            <img src="assets/hero-coni-kawaii.jpg" alt="Estudio Kawaii Kanban con mascotas y fichas de colores" />
+            <div style="margin-top:10px; font-family:'Fredoka',sans-serif; font-size:0.92rem; color:var(--pink-dark);">
+              ✨ Mochi, Usagi y Hoshi te acompañan en cada sala del estudio ✨
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjetas de Acceso Rápido a todas las Salas -->
+        <div style="margin-top:26px;">
+          <h3 style="font-size:1.25rem; color:var(--text-main); margin-bottom:6px;">
+            🔗 Explora todas las Salas del Estudio Kawaii (Haz clic en cualquier tarjeta):
+          </h3>
+          <div class="studio-hub-grid">
+            <a href="#secreto-kanban" class="hub-link-card">
+              <div class="hub-card-icon">🚗</div>
+              <h4>Sala 2: Autopista Kan-Bahn</h4>
+              <p>Descubre por qué tu mente se atasca cuando entran 7 números juntos y cómo el semáforo WIP=1 lo soluciona.</p>
+              <span class="hub-card-cta">Ir a la Autopista ➡️</span>
+            </a>
+
+            <a href="#caso-estrella" class="hub-link-card">
+              <div class="hub-card-icon">⭐</div>
+              <h4>Sala 3: El Reto 1.570.000 × 2</h4>
+              <p>3 formas Kawaii distintas de resolver 1.570.000 × 2 = 3.140.000 al tiro sin papel ni calculadora.</p>
+              <span class="hub-card-cta">Ver las 3 Estrategias ➡️</span>
+            </a>
+
+            <a href="#video-estudio" class="hub-link-card">
+              <div class="hub-card-icon">🎬</div>
+              <h4>Sala 4: Video-Estudio con Voz</h4>
+              <p>Reproductor animado de 5 capítulos con narración en voz chilena y subtítulos paso a paso.</p>
+              <span class="hub-card-cta">Reproducir Video ➡️</span>
+            </a>
+
+            <a href="#tablero-kanban" class="hub-link-card">
+              <div class="hub-card-icon">🗂️</div>
+              <h4>Sala 5: Tablero Kanban Vivo</h4>
+              <p>Mueve las fichas de colores por Backlog, Listo, Multiplicando (WIP=1) y Hecho, o escribe tus propios números.</p>
+              <span class="hub-card-cta">Abrir Tablero ➡️</span>
+            </a>
+
+            <a href="#ejemplos" class="hub-link-card">
+              <div class="hub-card-icon">🍬</div>
+              <h4>Sala 6: 8 Ejemplos Guiados</h4>
+              <p>Colección de ejemplos desde nivel suave hasta decenas de millones con fichas de colores y audio.</p>
+              <span class="hub-card-cta">Explorar Ejemplos ➡️</span>
+            </a>
+
+            <a href="#pruebas" class="hub-link-card">
+              <div class="hub-card-icon">🎮</div>
+              <h4>Sala 7: Pruebas y Desafíos</h4>
+              <p>4 niveles de pruebas interactivas para comprobar cuánto estás aprendiendo y subir tu rango Kawaii.</p>
+              <span class="hub-card-cta">Empezar Pruebas ➡️</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 2: EL SECRETO KANBAN & LA AUTOPISTA KAN-BAHN (#secreto-kanban)
+           ==================================================================== -->
+      <section id="secreto-kanban" class="studio-section">
+        <span class="section-badge">🚗 Sala 2 de 8 • El Método Kanban en Estilo Kawaii</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">La Metáfora «Kan-Bahn»: ¿Por qué nos bloqueamos con números grandes?</h2>
+            <p class="section-subtitle">
+              Descubre cómo evitar los tacos mentales cuando multiplicas números de 6 o 7 cifras en tu cabeza.
+            </p>
+          </div>
+          <a href="#caso-estrella" class="btn-kawaii btn-sm">Ir al Caso 1.570.000 × 2 ➡️</a>
+        </div>
+
+        <div class="hero-grid">
+          <div>
+            <h3 style="color:var(--pink-dark); font-size:1.3rem; margin-bottom:10px;">
+              🚦 Tu mente es como una autopista pastel («Kan-Bahn»)
+            </h3>
+            <p style="font-weight:700; margin-bottom:12px;">
+              En el método Kanban descubrimos que nuestra mente funciona igual que una autopista en hora punta:
+            </p>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; font-weight:700;">
+              <li style="background:#FFF0F3; border:2px solid #FFB3C6; padding:10px 14px; border-radius:14px;">
+                💥 <strong>Muri (Sobrecarga Mental):</strong> Si intentas meter los 7 dígitos de <code>1.570.000</code> al mismo tiempo a multiplicar en tu cabeza, la autopista se llena al 100% y se arma un <strong>taco total</strong>. ¡Nadie avanza!
+              </li>
+              <li style="background:#FFFDF0; border:2px solid #F4B942; padding:10px 14px; border-radius:14px;">
+                🎟️ <strong>Visualizar con Fichas de Colores:</strong> En vez de ver un monstruo de 7 cifras, partimos el trabajo en paquetes chiquititos (fichas de colores): 🍓 <strong>Millones</strong>, 🍋 <strong>Centenas de mil</strong>, 🌿 <strong>Decenas de mil</strong>.
+              </li>
+              <li style="background:#E6FAF5; border:2px solid #4CC98A; padding:10px 14px; border-radius:14px;">
+                🟢 <strong>Límite WIP = 1 y Sistema Pull:</strong> Ponemos un semáforo en la entrada que solo deja pasar <strong>1 ficha a la vez</strong>. Hasta que no terminas de multiplicar esa ficha, no jalas (Pull) la siguiente.
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero-illustration-box">
+            <img src="assets/kanbahn-kawaii.jpg" alt="Ilustración Kawaii de la Autopista Kan-Bahn con carritos de números" />
+            <div style="margin-top:8px; font-family:'Fredoka',sans-serif; font-size:0.88rem; color:#0D4F6C;">
+              🛣️ La Autopista «Kan-Bahn»: con Límite WIP los números fluyen sin tacos
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulador Interactivo de Tráfico Mental -->
+        <div class="kanbahn-simulator">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <h4 style="font-size:1.15rem; color:#0D4F6C;">
+              🎮 Simulador Interactivo: Compara tu mente SIN Kanban vs. CON Kanban
+            </h4>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button id="btn-kanbahn-jam" class="strategy-tab-btn" onclick="StudioApp.renderKanBahnMode('jam'); KawaiiSound.playWipAlert();">
+                🚨 Ver Modo Taco (Sin Kanban)
+              </button>
+              <button id="btn-kanbahn-flow" class="strategy-tab-btn active" onclick="StudioApp.renderKanBahnMode('kanbahn'); KawaiiSound.playCardPull();">
+                ✨ Ver Modo Kan-Bahn (Límite WIP = 1)
+              </button>
+            </div>
+          </div>
+          <div id="kanbahn-Interactive-view"></div>
+        </div>
+
+        <div class="section-footer-links">
+          <a href="#inicio" class="btn-kawaii btn-yellow btn-sm">⬅️ Volver a Inicio</a>
+          <a href="#caso-estrella" class="btn-kawaii btn-sm">Siguiente: Resolver 1.570.000 × 2 ➡️</a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 3: EL CASO ESTRELLA: 1.570.000 × 2 (#caso-estrella)
+           ==================================================================== -->
+      <section id="caso-estrella" class="studio-section">
+        <span class="section-badge">⭐ Sala 3 de 8 • El Reto Estrella Paso a Paso</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Cómo resolver 1.570.000 × 2 = 3.140.000 en 3 segundos</h2>
+            <p class="section-subtitle">
+              En Kanban siempre empezamos con lo que ya sabemos hacer. ¡Elige cuál de estas 3 formas Kawaii te acomoda más!
+            </p>
+          </div>
+          <a href="#tablero-kanban" class="btn-kawaii btn-mint btn-sm" onclick="KawaiiKanbanBoard.loadPreset(1570000, 2)">
+            🗂️ Probar 1.570.000 × 2 en el Tablero
+          </a>
+        </div>
+
+        <div class="strategy-tabs">
+          <button id="strat-btn-1" class="strategy-tab-btn active" onclick="StudioApp.renderStarStrategy(1)">
+            🌸 Forma 1: 3 Fichas de Colores (Separar y Juntar)
+          </button>
+          <button id="strat-btn-2" class="strategy-tab-btn" onclick="StudioApp.renderStarStrategy(2)">
+            🅿️ Forma 2: Parking Lot de Ceros (157 × 2)
+          </button>
+          <button id="strat-btn-3" class="strategy-tab-btn" onclick="StudioApp.renderStarStrategy(3)">
+            💰 Forma 3: Atajo «1 Millón y Medio + 70 Mil»
+          </button>
+        </div>
+
+        <div id="star-strategy-content"></div>
+
+        <div class="section-footer-links">
+          <a href="#secreto-kanban" class="btn-kawaii btn-yellow btn-sm">⬅️ Sala Anterior: Kan-Bahn</a>
+          <a href="#video-estudio" class="btn-kawaii btn-sm">Siguiente: Ver Video-Estudio Animado 🎬 ➡️</a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 4: VIDEO-ESTUDIO ANIMADO KAWAII (#video-estudio)
+           ==================================================================== -->
+      <section id="video-estudio" class="studio-section">
+        <span class="section-badge">🎬 Sala 4 de 8 • Video-Tutorial Interactivo con Voz</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Video-Estudio Kawaii: Aprende viendo y escuchando</h2>
+            <p class="section-subtitle">
+              Presiona <strong>▶️ Reproducir Video Kawaii</strong> para ver la animación por capítulos con narración chilena y subtítulos.
+            </p>
+          </div>
+        </div>
+
+        <div class="kawaii-video-wrapper">
+          <div class="video-stage">
+            <div class="video-top-hud">
+              <span id="video-chapter-title" class="video-chapter-pill">Cap. 1</span>
+              <div style="display:flex; gap:8px; align-items:center;">
+                <span id="video-mascot-badge" style="background:#FFF; border:2px solid #FF85B3; padding:4px 12px; border-radius:999px; font-family:'Fredoka',sans-serif; font-size:0.85rem; color:var(--pink-dark);">
+                  🐱 Mochi
+                </span>
+                <span id="video-status-badge" style="background:#FFF3B0; border:2px solid #F4B942; padding:4px 12px; border-radius:999px; font-size:0.78rem; font-weight:800; color:#7A5200;">
+                  ✨ LISTO PARA REPRODUCIR
+                </span>
+              </div>
+            </div>
+
+            <div id="video-scene-canvas" class="video-animation-canvas"></div>
+
+            <div class="video-subtitle-box">
+              <span id="video-subtitle-text">Cargando subtítulos Kawaii...</span>
+            </div>
+          </div>
+
+          <div class="video-controls-bar">
+            <div class="video-progress-track">
+              <div id="video-progress-fill" class="video-progress-fill"></div>
+            </div>
+
+            <div class="video-buttons-row">
+              <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                <button id="video-play-btn" class="btn-kawaii btn-sm" onclick="KawaiiVideoPlayer.togglePlay()">
+                  ▶️ Reproducir Video Kawaii
+                </button>
+                <button class="btn-kawaii btn-yellow btn-sm" onclick="KawaiiVideoPlayer.restart()">
+                  ⏮️ Reiniciar
+                </button>
+                <label style="font-size:0.82rem; font-weight:700; margin-left:6px;">
+                  Velocidad:
+                  <select onchange="KawaiiVideoPlayer.changeSpeed(this.value)" style="border-radius:8px; padding:4px 8px; font-weight:700; border:2px solid #FF85B3;">
+                    <option value="0.85">0.85x (Suave)</option>
+                    <option value="1.0" selected>1.0x (Normal)</option>
+                    <option value="1.2">1.2x (Rápido)</option>
+                  </select>
+                </label>
+              </div>
+
+              <div id="video-chapters-list" class="video-chapter-buttons"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-footer-links">
+          <a href="#caso-estrella" class="btn-kawaii btn-yellow btn-sm">⬅️ Sala Anterior: Caso 1.570.000 × 2</a>
+          <a href="#tablero-kanban" class="btn-kawaii btn-sm">Siguiente: Jugar en el Tablero Kanban 🗂️ ➡️</a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 5: TABLERO KANBAN INTERACTIVO (#tablero-kanban)
+           ==================================================================== -->
+      <section id="tablero-kanban" class="studio-section">
+        <span class="section-badge">🗂️ Sala 5 de 8 • Laboratorio Personal Kanban Interactivo</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Tu Tablero Kanban de Fichas Kawaii (con Límite WIP = 1)</h2>
+            <p class="section-subtitle">
+              Haz clic en los botones de cada ficha para moverla de izquierda a derecha, o presiona <strong>«✨ Resolver Paso a Paso Automático»</strong>. ¡Intenta meter 2 fichas al mismo tiempo en «Multiplicando» y verás cómo actúa el semáforo WIP!
+            </p>
+          </div>
+        </div>
+
+        <!-- Panel de Selección de Números o Ingreso Libre -->
+        <div class="kanban-controls-panel">
+          <div>
+            <div style="font-size:0.82rem; font-weight:800; color:var(--pink-dark); margin-bottom:6px;">
+              🍬 Retos Rápidos para Cargar en el Tablero:
+            </div>
+            <div class="preset-chips">
+              <button class="preset-chip" onclick="KawaiiKanbanBoard.loadPreset(1570000, 2)">⭐ 1.570.000 × 2</button>
+              <button class="preset-chip" onclick="KawaiiKanbanBoard.loadPreset(2340000, 2)">🐣 2.340.000 × 2</button>
+              <button class="preset-chip" onclick="KawaiiKanbanBoard.loadPreset(4500000, 2)">🐰 4.500.000 × 2</button>
+              <button class="preset-chip" onclick="KawaiiKanbanBoard.loadPreset(1850000, 2)">🐱 1.850.000 × 2</button>
+              <button class="preset-chip" onclick="KawaiiKanbanBoard.loadPreset(3200000, 3)">🐼 3.200.000 × 3</button>
+              <button class="preset-chip" onclick="KawaiiKanbanBoard.loadPreset(12400000, 2)">🦄 12.400.000 × 2</button>
+            </div>
+          </div>
+
+          <div class="custom-math-inputs">
+            <input id="board-input-number" type="number" class="kawaii-input" value="1570000" style="width:155px;" aria-label="Número grande" />
+            <span style="font-family:'Fredoka',sans-serif; font-size:1.3rem; color:var(--pink-dark);">×</span>
+            <input id="board-input-mult" type="number" min="2" max="9" class="kawaii-input" value="2" style="width:70px;" aria-label="Multiplicador" />
+            <button class="btn-kawaii btn-sm" onclick="KawaiiKanbanBoard.loadFromInputs()">
+              🔄 Crear Fichas
+            </button>
+            <button class="btn-kawaii btn-mint btn-sm" onclick="KawaiiKanbanBoard.autoSolveStepByStep()">
+              ✨ Resolver Paso a Paso Automático
+            </button>
+          </div>
+        </div>
+
+        <!-- Alerta de Límite WIP = 1 -->
+        <div id="kanban-wip-alert" class="wip-alert-banner">
+          <span style="font-size:1.8rem;">🚦</span>
+          <div>
+            <strong>¡ALTO AHÍ! Límite WIP = 1 Alcanzado</strong><br>
+            Ya tienes 1 ficha en la columna «Multiplicando». Recuerda la regla de oro Kanban: <em>«¡Deja de empezar y empieza a terminar!»</em> Termina primero la ficha actual pasándola a «Multiplicado ✅» antes de jalar la siguiente.
+          </div>
+        </div>
+
+        <!-- Las 4 Columnas del Tablero Personal Kanban -->
+        <div class="kanban-board-grid">
+          <!-- Columna 1: Backlog -->
+          <div class="kanban-column">
+            <div class="kanban-col-header">
+              <div class="kanban-col-title">📦 1. Backlog (Partes)</div>
+              <span class="wip-circle-badge">∞</span>
+            </div>
+            <div id="col-backlog-cards" style="display:flex; flex-direction:column; gap:12px;"></div>
+            <div class="pull-criteria-footer">
+              Split: Número dividido en fichas por color
+            </div>
+          </div>
+
+          <!-- Columna 2: Next / Comprometido -->
+          <div class="kanban-column">
+            <div class="kanban-col-header">
+              <div class="kanban-col-title">🎀 2. Listo (Next)</div>
+              <span class="wip-circle-badge">3</span>
+            </div>
+            <div id="col-next-cards" style="display:flex; flex-direction:column; gap:12px;"></div>
+            <div class="pull-criteria-footer">
+              Fichas listas para ser jaladas (Pull)
+            </div>
+          </div>
+
+          <!-- Columna 3: In-Progress con Límite WIP = 1 -->
+          <div class="kanban-column wip-column">
+            <div class="kanban-col-header">
+              <div class="kanban-col-title">⚡ 3. Multiplicando</div>
+              <span id="wip-count-badge" class="wip-circle-badge limit-one">WIP: 0/1</span>
+            </div>
+            <div id="col-wip-cards" style="display:flex; flex-direction:column; gap:12px;"></div>
+            <div class="pull-criteria-footer">
+              🚦 Regla de Oro: Máximo 1 ficha en tu mente a la vez
+            </div>
+          </div>
+
+          <!-- Columna 4: Done / Hecho -->
+          <div class="kanban-column done-column">
+            <div class="kanban-col-header">
+              <div class="kanban-col-title">✅ 4. Multiplicado</div>
+              <span class="wip-circle-badge">∞</span>
+            </div>
+            <div id="col-done-cards" style="display:flex; flex-direction:column; gap:12px;"></div>
+            <div class="pull-criteria-footer">
+              Ficha multiplicada lista para el Merge final
+            </div>
+          </div>
+        </div>
+
+        <!-- Parking Lot de Ceros -->
+        <div class="parking-lot-bar">
+          <div id="parking-lot-zeros-display" style="font-size:0.94rem; color:#0D4F6C;"></div>
+        </div>
+
+        <!-- Resultado Merge en Vivo -->
+        <div id="kanban-merge-summary" class="merge-result-banner"></div>
+
+        <div class="section-footer-links">
+          <a href="#video-estudio" class="btn-kawaii btn-yellow btn-sm">⬅️ Sala Anterior: Video-Estudio</a>
+          <a href="#ejemplos" class="btn-kawaii btn-sm">Siguiente: Galería de 8 Ejemplos 📚 ➡️</a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 6: GALERÍA DE 8 EJEMPLOS GUIADOS (#ejemplos)
+           ==================================================================== -->
+      <section id="ejemplos" class="studio-section">
+        <span class="section-badge">📚 Sala 6 de 8 • Entrenamiento Visual por Patrones</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Galería de 8 Ejemplos Guiados con Fichas Kawaii</h2>
+            <p class="section-subtitle">
+              Revisa cómo se descompone cada número grande, escucha la explicación con voz chilena o envíalo con un clic al Tablero Kanban interactivo.
+            </p>
+          </div>
+          <a href="#pruebas" class="btn-kawaii btn-sm">Ir a las Pruebas Interactivas 🎮 ➡️</a>
+        </div>
+
+        <div id="guided-examples-grid" class="examples-grid"></div>
+
+        <div class="section-footer-links">
+          <a href="#tablero-kanban" class="btn-kawaii btn-yellow btn-sm">⬅️ Sala Anterior: Tablero Kanban</a>
+          <a href="#pruebas" class="btn-kawaii btn-sm">Siguiente: Pruebas y Quizzes 🎮 ➡️</a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 7: PRUEBAS, QUIZZES Y EXAMEN ESTRELLA (#pruebas)
+           ==================================================================== -->
+      <section id="pruebas" class="studio-section">
+        <span class="section-badge">🎮 Sala 7 de 8 • Demuestra todo lo que aprendiste</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Laboratorio de Pruebas Kawaii</h2>
+            <p class="section-subtitle">
+              Avanza por los 4 modos de entrenamiento. ¡Cada respuesta correcta mide tu velocidad de respuesta, te da puntos XP y sube tu rango Kawaii!
+            </p>
+          </div>
+        </div>
+
+        <!-- Selector de los 4 Modos de Prueba -->
+        <div class="quiz-mode-selector">
+          <button id="quiz-mode-btn-mode1" class="quiz-mode-btn active" onclick="StudioApp.selectQuizMode('mode1')">
+            <div style="font-family:'Fredoka',sans-serif; font-size:1.05rem; color:var(--pink-dark);">
+              🧩 Nivel 1: Rompe-Números
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-muted); font-weight:700; margin-top:4px;">
+              Practica partir números grandes en Fichas de Colores y Parking Lot.
+            </p>
+          </button>
+
+          <button id="quiz-mode-btn-mode2" class="quiz-mode-btn" onclick="StudioApp.selectQuizMode('mode2')">
+            <div style="font-family:'Fredoka',sans-serif; font-size:1.05rem; color:#B27800;">
+              🗂️ Nivel 2: Con Fichas Visibles
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-muted); font-weight:700; margin-top:4px;">
+              Te mostramos las fichas multiplicadas y tú haces el Merge mental.
+            </p>
+          </button>
+
+          <button id="quiz-mode-btn-mode3" class="quiz-mode-btn" onclick="StudioApp.selectQuizMode('mode3')">
+            <div style="font-family:'Fredoka',sans-serif; font-size:1.05rem; color:#0F5C35;">
+              🧠 Nivel 3: Kanban en tu Mente
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-muted); font-weight:700; margin-top:4px;">
+              Cálculo mental puro imaginando las fichas en tu cabeza.
+            </p>
+          </button>
+
+          <button id="quiz-mode-btn-mode4" class="quiz-mode-btn" onclick="StudioApp.selectQuizMode('mode4')">
+            <div style="font-family:'Fredoka',sans-serif; font-size:1.05rem; color:#5A2E98;">
+              🌟 Nivel 4: Examen Estrella (10 Retos)
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-muted); font-weight:700; margin-top:4px;">
+              El desafío completo de 10 preguntas para llegar al rango Leyenda Kawaii.
+            </p>
+          </button>
+        </div>
+
+        <!-- Arena Interactiva del Quiz -->
+        <div id="quiz-arena-container" class="quiz-arena"></div>
+
+        <div class="section-footer-links">
+          <a href="#ejemplos" class="btn-kawaii btn-yellow btn-sm">⬅️ Sala Anterior: Ejemplos Guiados</a>
+          <a href="#progreso-kmm" class="btn-kawaii btn-sm">Siguiente: Mis Rangos y Métricas 🏆 ➡️</a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 8: PROGRESO, MÉTRICAS & RANGOS KAWAII (#progreso-kmm)
+           ==================================================================== -->
+      <section id="progreso-kmm" class="studio-section">
+        <span class="section-badge">🏆 Sala 8 de 8 • Rangos Kawaii &amp; Estadísticas</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Tu Evolución y Rangos Kawaii (N0 a N5)</h2>
+            <p class="section-subtitle">
+              Mira cómo mejora tu velocidad mental a medida que resuelves desafíos con tus Fichas Kawaii.
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-grid" style="margin-bottom:24px;">
+          <!-- Métricas y Gráfico -->
+          <div style="background:var(--surface-soft); border:3px solid #F3C6DC; border-radius:var(--radius-md); padding:20px;">
+            <h3 style="color:var(--pink-dark); font-size:1.25rem; margin-bottom:10px;">
+              📊 Tus Estadísticas de Velocidad Mental
+            </h3>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:10px; margin-bottom:16px;">
+              <div style="background:#FFF; border:2px solid #FFB3D1; border-radius:14px; padding:10px; text-align:center;">
+                <div style="font-size:0.75rem; font-weight:800; color:var(--text-muted);">⏱️ TIEMPO PROMEDIO</div>
+                <div id="metric-avg-leadtime" style="font-family:'Fredoka',sans-serif; font-size:1.4rem; color:var(--pink-dark);">9.3 seg</div>
+              </div>
+              <div style="background:#FFF; border:2px solid #4CC98A; border-radius:14px; padding:10px; text-align:center;">
+                <div style="font-size:0.75rem; font-weight:800; color:var(--text-muted);">🚀 RETOS RESUELTOS</div>
+                <div id="metric-delivery-rate" style="font-family:'Fredoka',sans-serif; font-size:1.4rem; color:#0F5C35;">0 retos</div>
+              </div>
+              <div style="background:#FFF; border:2px solid #F4B942; border-radius:14px; padding:10px; text-align:center;">
+                <div style="font-size:0.75rem; font-weight:800; color:var(--text-muted);">🚦 LÍMITE WIP MENTAL</div>
+                <div style="font-family:'Fredoka',sans-serif; font-size:1.4rem; color:#7A5200;">1 ficha</div>
+              </div>
+            </div>
+
+            <div style="font-size:0.85rem; font-weight:800; color:var(--text-main); margin-bottom:8px;">
+              📈 Gráfico de Velocidad (Segundos que demoras en cada reto):
+            </div>
+            <div id="lead-time-bars" style="display:flex; align-items:flex-end; gap:8px; background:#FFF; padding:14px; border-radius:14px; border:2px dashed #F3C6DC;"></div>
+          </div>
+
+          <div class="hero-illustration-box">
+            <img src="assets/kmm-mascot-badges.jpg" alt="Mascotas Kawaii celebrando los rangos de progreso" />
+            <div style="margin-top:8px; font-family:'Fredoka',sans-serif; font-size:0.9rem; color:#5A2E98;">
+              🏆 ¡Gana XP resolviendo en el Tablero y en las Pruebas para llegar a N5!
+            </div>
+          </div>
+        </div>
+
+        <!-- Escalera de Rangos (N0 a N5) -->
+        <h3 style="font-size:1.3rem; color:var(--text-main);">
+          🌟 Escalera de Rangos Kawaii Kanban (N0 – N5):
+        </h3>
+        <div id="kmm-levels-grid" class="kmm-ladder"></div>
+
+        <!-- Bitácora Personal -->
+        <div style="margin-top:24px; background:linear-gradient(135deg,#FFFDF2,#FFF0F6); border:3px solid #FFD166; border-radius:var(--radius-md); padding:20px;">
+          <h4 style="color:#7A5200; font-size:1.15rem; margin-bottom:6px;">
+            📔 Mi Bitácora de Trucos Mentales
+          </h4>
+          <p style="font-size:0.88rem; font-weight:700; color:var(--text-muted); margin-bottom:12px;">
+            Anotar qué truco te funcionó mejor ayuda a que tu cerebro lo recuerde para siempre:
+          </p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;">
+            <input id="reflection-input" type="text" class="kawaii-input" style="flex:1; min-width:240px;"
+                   placeholder="Escribe qué truco te gustó más (ej: Guardar los ceros en el Parking Lot me ayudó caleta)..." />
+            <button class="btn-kawaii btn-sm" onclick="StudioApp.addReflection()">
+              💌 Guardar Nota (+10 XP)
+            </button>
+          </div>
+          <div id="reflections-list" style="display:flex; flex-direction:column; gap:8px;"></div>
+        </div>
+
+        <div class="section-footer-links">
+          <a href="#pruebas" class="btn-kawaii btn-yellow btn-sm">⬅️ Volver a las Pruebas</a>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="index.html" class="btn-kawaii btn-lavender btn-sm">🏠 Volver al Portal Principal</a>
+            <a href="tiendita.html" class="btn-kawaii btn-mint btn-sm">🛍️ Ir a Tiendita: Tablas 1–12 y Vuelto ➡️</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Scripts del Estudio -->
+  <script src="js/data.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/video-player.js"></script>
+  <script src="js/kanban-board.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

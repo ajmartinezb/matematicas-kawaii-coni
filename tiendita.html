@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiendita Kawaii Kanban 🛍️💵 | Tablas del 1 al 12, Ventas y Vuelto</title>
+  <!-- Google Fonts Kawaii: Fredoka & Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Banner Superior con Links Rápidos -->
+  <div class="top-banner">
+    <a href="index.html" class="sister-page-pill">🏠 Portal Principal</a>
+    <span>🛍️ ¡Bienvenidos a la Tiendita Kawaii Kanban: Tablas del 1 al 12, Ventas y Vuelto! 💵✨</span>
+    <a href="grandes-numeros.html" class="sister-page-pill">🌸 Ir a Módulo 1: Grandes Números (1.570.000 × 2)</a> •
+    <a href="#tablas-1-12">Explorar Tablas 1 al 12</a> •
+    <a href="#caja-vuelto">Simulador de Caja y Vuelto</a>
+  </div>
+
+  <!-- Header Principal + Barra de Navegación -->
+  <header class="studio-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo" title="Volver al Portal Principal">
+        <div class="brand-mascot">🛍️</div>
+        <div>
+          <div class="brand-title">Tiendita Kawaii &amp; Tablas 1–12 🌸</div>
+          <div class="brand-subtitle">Módulo 2 • Tablas hasta el 12, Cobrar Ventas y Dar Vuelto sin Enredos</div>
+        </div>
+      </a>
+
+      <div class="header-stats">
+        <a href="index.html" class="stat-pill" style="background:#FFE3EE; border-color:#FF6B9E; color:#8A1C4A;" title="Ir al Portal Principal de Módulos">
+          <span>🏠</span> <span>Portal Principal</span>
+        </a>
+        <a href="grandes-numeros.html" class="stat-pill" style="background:#FFF3B0; border-color:#F4B942; color:#7A5200;" title="Ir al Módulo 1 de Números Millonarios">
+          <span>🌸</span> <span>Módulo 1: Millones</span>
+        </a>
+        <a href="#progreso-kmm" class="stat-pill kmm-badge" title="Tu Rango Kawaii Kanban">
+          <span>👑</span> <span id="header-kmm-val">N0: Pollito Aprendiz 🐣</span>
+        </a>
+        <a href="#progreso-kmm" class="stat-pill" title="Puntos de Experiencia Kawaii">
+          <span>⭐</span> <span id="header-xp-val">25 XP</span>
+        </a>
+        <a href="#pruebas" class="stat-pill" title="Ventas y Retos Resueltos">
+          <span>✅</span> <span id="header-solved-val">0</span>
+        </a>
+        <a href="#pruebas" class="stat-pill" title="Racha Actual">
+          <span id="header-streak-val">0🔥</span>
+        </a>
+        <button id="toggle-sound-btn" class="sound-btn" onclick="KawaiiSound.toggleSound()">
+          🔊 Voz Chilena Kawaii: ON
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú Horizontal con Múltiples Links dentro de la Página -->
+    <nav class="studio-nav" aria-label="Navegación principal de la Tiendita Kawaii">
+      <div class="nav-links-container">
+        <a href="index.html" class="nav-link" style="background:#FFE3EE; border-color:#FF6B9E; color:#8A1C4A;">🏠 Portal Principal</a>
+        <a href="#inicio" class="nav-link active">🛍️ 1. Inicio Tiendita</a>
+        <a href="#tablas-1-12" class="nav-link">🔢 2. Tablas 1 al 12 Interactivas</a>
+        <a href="#caja-vuelto" class="nav-link">💵 3. Caja Registradora y Vuelto</a>
+        <a href="#video-estudio" class="nav-link">🎬 4. Video-Estudio de Ventas</a>
+        <a href="#tablero-kanban" class="nav-link">🗂️ 5. Tablero Kanban (×1 a ×12)</a>
+        <a href="#casos-cotidianos" class="nav-link">🥐 6. 8 Casos de Feria y Kiosco</a>
+        <a href="#pruebas" class="nav-link">🎮 7. Pruebas de Tablas y Vuelto</a>
+        <a href="#progreso-kmm" class="nav-link">🏆 8. Rangos y Métricas</a>
+        <a href="grandes-numeros.html" class="nav-link" style="background:#FFD6E8; border-color:#FF6B9E; color:#8A1C4A;">🌸 Módulo 1: Grandes Números</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Layout con Sidebar de Links + Contenido Principal -->
+  <div class="studio-layout">
+    <!-- Sidebar Izquierdo: Mapa de la Tiendita y Reglas -->
+    <aside class="studio-sidebar">
+      <div class="sidebar-card">
+        <h3>🗺️ Mapa de la Tiendita Kawaii</h3>
+        <ul class="quick-links-list">
+          <li><a href="index.html" style="background:#FFE3EE; border:2px solid #FF6B9E; color:#8A1C4A;">🏠 Volver al Portal Principal</a></li>
+          <li><a href="#inicio" class="active">🛍️ Bienvenida a la Tiendita</a></li>
+          <li><a href="#tablas-1-12">🔢 Explorador Tablas 1 al 12</a></li>
+          <li><a href="#caja-vuelto">💵 Simulador Cobrar y Dar Vuelto</a></li>
+          <li><a href="#video-estudio">🎬 Video Animado con Voz</a></li>
+          <li><a href="#tablero-kanban">🗂️ Tablero Kanban (×1 a ×12)</a></li>
+          <li><a href="#casos-cotidianos">🥐 8 Casos de Compra y Venta</a></li>
+          <li><a href="#pruebas">🎮 Pruebas (Tablas + Vuelto)</a></li>
+          <li><a href="#progreso-kmm">📈 Rangos Kawaii (N0–N5)</a></li>
+          <li><a href="grandes-numeros.html" style="background:#FFD6E8; border:2px solid #FF6B9E; color:#8A1C4A;">⬅️ Ir a Módulo 1 (1.570.000 × 2)</a></li>
+        </ul>
+      </div>
+
+      <!-- 4 Reglas de Oro del Cajero Kanban -->
+      <div class="sidebar-card explicit-policies-box">
+        <h3>📜 4 Reglas de Oro del Cajero Kanban</h3>
+        <div class="policy-item">
+          <span>1️⃣</span>
+          <span><strong>La Docena (×12 = 10 + 2):</strong> Nunca multipliques ×12 de golpe. Haz <code>×10</code> y súmale el doble (<code>×2</code>).</span>
+        </div>
+        <div class="policy-item">
+          <span>2️⃣</span>
+          <span><strong>Truco del 9 (×10 − 1):</strong> Para multiplicar por 9, multiplica por 10 y réstale el precio 1 vez.</span>
+        </div>
+        <div class="policy-item">
+          <span>3️⃣</span>
+          <span><strong>Límite WIP = 1 al Vender:</strong> Primero termina de calcular el <strong>Total a Cobrar</strong>, y recién después calcula el <strong>Vuelto</strong>.</span>
+        </div>
+        <div class="policy-item">
+          <span>4️⃣</span>
+          <span><strong>El Puente del Vuelto:</strong> ¡Nunca restes con llevadas! Cuenta cuánto falta desde el precio hasta llegar al billete.</span>
+        </div>
+      </div>
+
+      <!-- Atajos Rápidos de Billetes Chilenos -->
+      <div class="sidebar-card">
+        <h3>💵 Pares Amigos del $1.000</h3>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:8px; font-weight:700;">
+          Para saltar rápido a la siguiente luca ($1.000) cuando das vuelto:
+        </p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:0.8rem; font-weight:800;">
+          <div style="background:#FFF0F6; padding:6px 8px; border-radius:8px; border:1.5px solid #FFB3D1;">$100 + <strong>$900</strong></div>
+          <div style="background:#FFF0F6; padding:6px 8px; border-radius:8px; border:1.5px solid #FFB3D1;">$200 + <strong>$800</strong></div>
+          <div style="background:#FFFDF0; padding:6px 8px; border-radius:8px; border:1.5px solid #F4B942;">$300 + <strong>$700</strong></div>
+          <div style="background:#FFFDF0; padding:6px 8px; border-radius:8px; border:1.5px solid #F4B942;">$400 + <strong>$600</strong></div>
+          <div style="background:#E6FAF5; padding:6px 8px; border-radius:8px; border:1.5px solid #4CC98A;">$500 + <strong>$500</strong></div>
+          <div style="background:#E6FAF5; padding:6px 8px; border-radius:8px; border:1.5px solid #4CC98A;">$250 + <strong>$750</strong></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Contenido Principal -->
+    <main class="studio-main">
+
+      <!-- ====================================================================
+           SECCIÓN 1: BIENVENIDA A LA TIENDITA KAWAII (#inicio)
+           ==================================================================== -->
+      <section id="inicio" class="studio-section">
+        <span class="section-badge">🛍️ Sala 1 de 8 • Matemáticas para la Vida Cotidiana</span>
+        <div class="hero-grid">
+          <div>
+            <h1 class="section-title" style="font-size:2.05rem; color:var(--pink-dark);">
+              ¡Hola! 🎀 Domina las Tablas del 1 al 12, cómo vender y cómo dar vuelto al tiro
+            </h1>
+            <div class="coni-welcome-bubble">
+              <p style="font-weight:700; font-size:1.02rem;">
+                💬 <strong>Matemáticas para la vida real:</strong> Ya sea en la feria, en el kiosco del colegio o en una tienda, aquí llevamos tus <strong>Fichas Kawaii Kanban</strong> a las compras y ventas de todos los días.
+              </p>
+              <p style="margin-top:8px; font-weight:700; color:var(--text-muted);">
+                Aquí descubrirás que las <strong>tablas hasta la del 12</strong> tienen atajos secretos (como pensar que una docena de <span class="problem-highlight-pill">12 = 10 + 2</span>) y aprenderás el truco favorito de los cajeros expertos: <strong>El Puente del Vuelto</strong>, para cobrar y entregar vuelto con billetes de <code>$2.000</code>, <code>$5.000</code>, <code>$10.000</code> y <code>$20.000</code> sin enredarte jamás.
+              </p>
+            </div>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
+              <a href="#tablas-1-12" class="btn-kawaii">🔢 Ver Tablas del 1 al 12</a>
+              <a href="#caja-vuelto" class="btn-kawaii btn-mint">💵 Abrir Caja Registradora y Vuelto</a>
+              <a href="#video-estudio" class="btn-kawaii btn-lavender">🎬 Ver Video-Estudio de Ventas</a>
+            </div>
+          </div>
+
+          <div class="hero-illustration-box">
+            <img src="assets/hero-coni-kawaii.jpg" alt="Tiendita Kawaii Kanban para practicar las tablas del 1 al 12 y dar vuelto" />
+            <div style="margin-top:10px; font-family:'Fredoka',sans-serif; font-size:0.92rem; color:var(--pink-dark);">
+              🛍️ ¡Atiende tu propia Tiendita Kawaii con Mochi, Usagi y Kuma! ✨
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjetas de Acceso Rápido a las Salas -->
+        <div style="margin-top:26px;">
+          <h3 style="font-size:1.25rem; color:var(--text-main); margin-bottom:6px;">
+            🔗 Elige qué quieres practicar hoy en tu Tiendita Kawaii:
+          </h3>
+          <div class="studio-hub-grid">
+            <a href="#tablas-1-12" class="hub-link-card">
+              <div class="hub-card-icon">🔢</div>
+              <h4>Sala 2: Tablas del 1 al 12</h4>
+              <p>Haz clic en cualquier tabla del 1 al 12 para ver su truco Split &amp; Merge y cuánto cuesta en pesos reales.</p>
+              <span class="hub-card-cta">Explorar Tablas ➡️</span>
+            </a>
+
+            <a href="#caja-vuelto" class="hub-link-card">
+              <div class="hub-card-icon">💵</div>
+              <h4>Sala 3: Caja y Puente del Vuelto</h4>
+              <p>Elige productos del kiosco, calcula el total y mira cómo saltar desde el precio hasta el billete para dar vuelto.</p>
+              <span class="hub-card-cta">Probar Caja Registradora ➡️</span>
+            </a>
+
+            <a href="#video-estudio" class="hub-link-card">
+              <div class="hub-card-icon">🎬</div>
+              <h4>Sala 4: Video-Tutorial Ventas</h4>
+              <p>5 capítulos animados con voz explicando la tabla del 12, el Parking Lot de precios y el vuelto.</p>
+              <span class="hub-card-cta">Reproducir Video ➡️</span>
+            </a>
+
+            <a href="#casos-cotidianos" class="hub-link-card">
+              <div class="hub-card-icon">🥐</div>
+              <h4>Sala 6: 8 Casos de Feria y Tienda</h4>
+              <p>Huevos por docena, empanadas, lápices, cine y colaciones resueltos ficha por ficha.</p>
+              <span class="hub-card-cta">Ver Casos Reales ➡️</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 2: EXPLORADOR INTERACTIVO DE LAS TABLAS DEL 1 AL 12 (#tablas-1-12)
+           ==================================================================== -->
+      <section id="tablas-1-12" class="studio-section">
+        <span class="section-badge">🔢 Sala 2 de 8 • Todas las Tablas hasta el 12 sin Memorizar como Robot</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Explorador Kawaii de las Tablas del 1 al 12</h2>
+            <p class="section-subtitle">
+              Selecciona cualquier botón del <strong>×1 al ×12</strong> para descubrir su secreto Kanban, su aplicación en compras reales y escuchar cada multiplicación con voz chilena.
+            </p>
+          </div>
+          <a href="#caja-vuelto" class="btn-kawaii btn-mint btn-sm">Ir a la Caja Registradora 💵 ➡️</a>
+        </div>
+
+        <!-- Botonera del 1 al 12 -->
+        <div id="tables-buttons-container" class="tables-selector-grid"></div>
+
+        <!-- Panel Dinámico con el Secreto de la Tabla y sus 12 Fichas -->
+        <div id="selected-table-detail"></div>
+
+        <div class="section-footer-links">
+          <a href="#inicio" class="btn-kawaii btn-yellow btn-sm">⬅️ Volver a Inicio</a>
+          <a href="#caja-vuelto" class="btn-kawaii btn-sm">Siguiente: Simulador de Ventas y Vuelto 💵 ➡️</a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 3: SIMULADOR INTERACTIVO DE CAJA REGISTRADORA Y VUELTO (#caja-vuelto)
+           ==================================================================== -->
+      <section id="caja-vuelto" class="studio-section">
+        <span class="section-badge">💵 Sala 3 de 8 • Vender, Cobrar y Dar Vuelto en la Vida Real</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">La Caja Registradora Kawaii &amp; El Puente del Vuelto</h2>
+            <p class="section-subtitle">
+              En Kanban aplicamos <strong>Límite WIP = 1</strong>: primero calculamos el <strong>Total de la Venta</strong> (Cantidad × Precio) y luego armamos el <strong>Puente del Vuelto</strong> sumando hacia arriba hasta el billete del cliente.
+            </p>
+          </div>
+        </div>
+
+        <div class="pos-simulator-grid">
+          <!-- Columna Izquierda: Catálogo de Productos + Controles de Cantidad y Billete -->
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div style="background:var(--surface-soft); border:3px solid #FFD6E8; border-radius:20px; padding:16px;">
+              <h4 style="color:var(--pink-dark); font-size:1.08rem; margin-bottom:10px;">
+                🛍️ 1. Elige un Producto Cotidiano de la Tiendita:
+              </h4>
+              <div id="shop-products-catalog" class="catalog-products-grid"></div>
+            </div>
+
+            <div style="background:var(--surface-soft); border:3px solid #FFD6E8; border-radius:20px; padding:16px;">
+              <h4 style="color:var(--pink-dark); font-size:1.08rem; margin-bottom:10px;">
+                🔢 2. Elige la Cantidad (Tablas 1 al 12) o escribe tu propio precio:
+              </h4>
+              <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px;">
+                <button class="preset-chip" onclick="StudioApp.setPosQty(2)">×2</button>
+                <button class="preset-chip" onclick="StudioApp.setPosQty(3)">×3</button>
+                <button class="preset-chip" onclick="StudioApp.setPosQty(4)">×4</button>
+                <button class="preset-chip" onclick="StudioApp.setPosQty(5)">×5</button>
+                <button class="preset-chip" onclick="StudioApp.setPosQty(6)">×6 (Media Docena)</button>
+                <button class="preset-chip" onclick="StudioApp.setPosQty(7)">×7</button>
+                <button class="preset-chip" onclick="StudioApp.setPosQty(8)">×8</button>
+                <button class="preset-chip" onclick="StudioApp.setPosQty(9)">×9</button>
+                <button class="preset-chip" onclick="StudioApp.setPosQty(10)">×10</button>
+                <button class="preset-chip" onclick="StudioApp.setPosQty(11)">×11</button>
+                <button class="preset-chip" onclick="StudioApp.setPosQty(12)">🍩 ×12 (1 Docena)</button>
+              </div>
+
+              <div class="custom-math-inputs">
+                <label style="font-size:0.84rem; font-weight:800;">
+                  Cantidad:
+                  <input id="pos-input-qty" type="number" min="1" max="50" value="12" class="kawaii-input" style="width:78px;" onchange="StudioApp.updatePosFromManualInputs()" />
+                </label>
+                <span style="font-family:'Fredoka',sans-serif; font-size:1.2rem; color:var(--pink-dark);">× $</span>
+                <label style="font-size:0.84rem; font-weight:800;">
+                  Precio Unitario:
+                  <input id="pos-input-price" type="number" step="50" min="50" value="300" class="kawaii-input" style="width:110px;" onchange="StudioApp.updatePosFromManualInputs()" />
+                </label>
+                <button class="btn-kawaii btn-sm" onclick="StudioApp.updatePosFromManualInputs()">
+                  🔄 Calcular
+                </button>
+              </div>
+            </div>
+
+            <div style="background:var(--surface-soft); border:3px solid #FFD6E8; border-radius:20px; padding:16px;">
+              <h4 style="color:var(--pink-dark); font-size:1.08rem; margin-bottom:10px;">
+                💵 3. ¿Con qué billete te paga el cliente?
+              </h4>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <button id="bill-chip-1000" class="chilean-bill-chip bill-1000" onclick="StudioApp.setPosBill(1000)">💵 $1.000</button>
+                <button id="bill-chip-2000" class="chilean-bill-chip bill-2000" onclick="StudioApp.setPosBill(2000)">💵 $2.000</button>
+                <button id="bill-chip-5000" class="chilean-bill-chip bill-5000 active" onclick="StudioApp.setPosBill(5000)">💵 $5.000</button>
+                <button id="bill-chip-10000" class="chilean-bill-chip bill-10000" onclick="StudioApp.setPosBill(10000)">💵 $10.000</button>
+                <button id="bill-chip-20000" class="chilean-bill-chip bill-20000" onclick="StudioApp.setPosBill(20000)">💵 $20.000</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Boleta Interactiva Paso a Paso con Puente del Vuelto -->
+          <div id="pos-live-receipt" class="pos-receipt-box"></div>
+        </div>
+
+        <div class="section-footer-links">
+          <a href="#tablas-1-12" class="btn-kawaii btn-yellow btn-sm">⬅️ Sala Anterior: Tablas 1 al 12</a>
+          <a href="#video-estudio" class="btn-kawaii btn-sm">Siguiente: Video-Estudio de Ventas 🎬 ➡️</a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 4: VIDEO-ESTUDIO ANIMADO DE VENTAS Y VUELTO (#video-estudio)
+           ==================================================================== -->
+      <section id="video-estudio" class="studio-section">
+        <span class="section-badge">🎬 Sala 4 de 8 • Video-Tutorial de Tablas, Precios y Vuelto</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Video-Estudio Kawaii: Cómo Cobrar y Dar Vuelto sin Bloqueos</h2>
+            <p class="section-subtitle">
+              Presiona <strong>▶️ Reproducir Video Kawaii</strong> para recorrer los 5 capítulos con voz chilena y subtítulos.
+            </p>
+          </div>
+        </div>
+
+        <div class="kawaii-video-wrapper">
+          <div class="video-stage">
+            <div class="video-top-hud">
+              <span id="video-chapter-title" class="video-chapter-pill">Cap. 1</span>
+              <div style="display:flex; gap:8px; align-items:center;">
+                <span id="video-mascot-badge" style="background:#FFF; border:2px solid #FF85B3; padding:4px 12px; border-radius:999px; font-family:'Fredoka',sans-serif; font-size:0.85rem; color:var(--pink-dark);">
+                  🐱 Mochi
+                </span>
+                <span id="video-status-badge" style="background:#FFF3B0; border:2px solid #F4B942; padding:4px 12px; border-radius:999px; font-size:0.78rem; font-weight:800; color:#7A5200;">
+                  ✨ LISTO PARA REPRODUCIR
+                </span>
+              </div>
+            </div>
+
+            <div id="video-scene-canvas" class="video-animation-canvas"></div>
+
+            <div class="video-subtitle-box">
+              <span id="video-subtitle-text">Cargando subtítulos Kawaii...</span>
+            </div>
+          </div>
+
+          <div class="video-controls-bar">
+            <div class="video-progress-track">
+              <div id="video-progress-fill" class="video-progress-fill"></div>
+            </div>
+
+            <div class="video-buttons-row">
+              <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                <button id="video-play-btn" class="btn-kawaii btn-sm" onclick="KawaiiVideoPlayer.togglePlay()">
+                  ▶️ Reproducir Video Kawaii
+                </button>
+                <button class="btn-kawaii btn-yellow btn-sm" onclick="KawaiiVideoPlayer.restart()">
+                  ⏮️ Reiniciar
+                </button>
+                <label style="font-size:0.82rem; font-weight:700; margin-left:6px;">
+                  Velocidad:
+                  <select onchange="KawaiiVideoPlayer.changeSpeed(this.value)" style="border-radius:8px; padding:4px 8px; font-weight:700; border:2px solid #FF85B3;">
+                    <option value="0.85">0.85x (Suave)</option>
+                    <option value="1.0" selected>1.0x (Normal)</option>
+                    <option value="1.2">1.2x (Rápido)</option>
+                  </select>
+                </label>
+              </div>
+
+              <div id="video-chapters-list" class="video-chapter-buttons"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-footer-links">
+          <a href="#caja-vuelto" class="btn-kawaii btn-yellow btn-sm">⬅️ Sala Anterior: Caja Registradora</a>
+          <a href="#tablero-kanban" class="btn-kawaii btn-sm">Siguiente: Tablero Kanban (×1 a ×12) 🗂️ ➡️</a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 5: TABLERO KANBAN INTERACTIVO CON MULTIPLICADOR HASTA 12 (#tablero-kanban)
+           ==================================================================== -->
+      <section id="tablero-kanban" class="studio-section">
+        <span class="section-badge">🗂️ Sala 5 de 8 • Tablero Personal Kanban Habilitado hasta ×12</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Tablero Kanban de Fichas para Precios y Tablas (×1 hasta ×12)</h2>
+            <p class="section-subtitle">
+              Carga cualquier compra cotidiana (como <code>$1.200 × 12</code> o <code>$450 × 8</code>) y mueve una ficha a la vez por la zona <strong>Multiplicando (WIP = 1)</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Panel de Selección de Compras Rápidas o Ingreso Libre hasta ×12 -->
+        <div class="kanban-controls-panel">
+          <div>
+            <div style="font-size:0.82rem; font-weight:800; color:var(--pink-dark); margin-bottom:6px;">
+              🛍️ Compras Cotidianas para Probar en el Tablero (Tablas hasta el 12):
+            </div>
+            <div class="preset-chips">
+              <button class="preset-chip" onclick="KawaiiKanbanBoard.loadPreset(1200, 12)">🍩 $1.200 × 12 (Docena)</button>
+              <button class="preset-chip" onclick="KawaiiKanbanBoard.loadPreset(300, 12)">🥚 $300 × 12 (Huevos)</button>
+              <button class="preset-chip" onclick="KawaiiKanbanBoard.loadPreset(450, 8)">🧁 $450 × 8 (Queques)</button>
+              <button class="preset-chip" onclick="KawaiiKanbanBoard.loadPreset(1200, 6)">🥟 $1.200 × 6 (Empanadas)</button>
+              <button class="preset-chip" onclick="KawaiiKanbanBoard.loadPreset(1500, 7)">🧋 $1.500 × 7 (Boba Tea)</button>
+              <button class="preset-chip" onclick="KawaiiKanbanBoard.loadPreset(750, 11)">🥢 $750 × 11 (Stickers)</button>
+            </div>
+          </div>
+
+          <div class="custom-math-inputs">
+            <input id="board-input-number" type="number" class="kawaii-input" value="1200" style="width:135px;" aria-label="Precio o número" />
+            <span style="font-family:'Fredoka',sans-serif; font-size:1.3rem; color:var(--pink-dark);">×</span>
+            <input id="board-input-mult" type="number" min="1" max="12" class="kawaii-input" value="12" style="width:75px;" aria-label="Multiplicador 1 a 12" />
+            <button class="btn-kawaii btn-sm" onclick="KawaiiKanbanBoard.loadFromInputs()">
+              🔄 Crear Fichas
+            </button>
+            <button class="btn-kawaii btn-mint btn-sm" onclick="KawaiiKanbanBoard.autoSolveStepByStep()">
+              ✨ Resolver Paso a Paso Automático
+            </button>
+          </div>
+        </div>
+
+        <!-- Alerta de Límite WIP = 1 -->
+        <div id="kanban-wip-alert" class="wip-alert-banner">
+          <span style="font-size:1.8rem;">🚦</span>
+          <div>
+            <strong>¡ALTO AHÍ! Límite WIP = 1 Alcanzado</strong><br>
+            Ya tienes 1 ficha en la columna «Multiplicando». Termina primero esa ficha pasándola a «Multiplicado ✅» antes de jalar la siguiente.
+          </div>
+        </div>
+
+        <!-- Las 4 Columnas del Tablero Personal Kanban -->
+        <div class="kanban-board-grid">
+          <div class="kanban-column">
+            <div class="kanban-col-header">
+              <div class="kanban-col-title">📦 1. Backlog (Partes)</div>
+              <span class="wip-circle-badge">∞</span>
+            </div>
+            <div id="col-backlog-cards" style="display:flex; flex-direction:column; gap:12px;"></div>
+            <div class="pull-criteria-footer">
+              Split: Precio dividido en fichas por posición
+            </div>
+          </div>
+
+          <div class="kanban-column">
+            <div class="kanban-col-header">
+              <div class="kanban-col-title">🎀 2. Listo (Next)</div>
+              <span class="wip-circle-badge">3</span>
+            </div>
+            <div id="col-next-cards" style="display:flex; flex-direction:column; gap:12px;"></div>
+            <div class="pull-criteria-footer">
+              Fichas listas para jalar (Pull)
+            </div>
+          </div>
+
+          <div class="kanban-column wip-column">
+            <div class="kanban-col-header">
+              <div class="kanban-col-title">⚡ 3. Multiplicando</div>
+              <span id="wip-count-badge" class="wip-circle-badge limit-one">WIP: 0/1</span>
+            </div>
+            <div id="col-wip-cards" style="display:flex; flex-direction:column; gap:12px;"></div>
+            <div class="pull-criteria-footer">
+              🚦 Regla de Oro: Máximo 1 ficha en tu mente a la vez
+            </div>
+          </div>
+
+          <div class="kanban-column done-column">
+            <div class="kanban-col-header">
+              <div class="kanban-col-title">✅ 4. Multiplicado</div>
+              <span class="wip-circle-badge">∞</span>
+            </div>
+            <div id="col-done-cards" style="display:flex; flex-direction:column; gap:12px;"></div>
+            <div class="pull-criteria-footer">
+              Ficha lista para sumar a la Boleta
+            </div>
+          </div>
+        </div>
+
+        <!-- Parking Lot de Ceros -->
+        <div class="parking-lot-bar">
+          <div id="parking-lot-zeros-display" style="font-size:0.94rem; color:#0D4F6C;"></div>
+        </div>
+
+        <!-- Resultado Merge en Vivo -->
+        <div id="kanban-merge-summary" class="merge-result-banner"></div>
+
+        <div class="section-footer-links">
+          <a href="#video-estudio" class="btn-kawaii btn-yellow btn-sm">⬅️ Sala Anterior: Video-Estudio</a>
+          <a href="#casos-cotidianos" class="btn-kawaii btn-sm">Siguiente: 8 Casos de Feria y Kiosco 🥐 ➡️</a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 6: GALERÍA DE 8 CASOS COTIDIANOS DE COMPRA, VENTA Y VUELTO (#casos-cotidianos)
+           ==================================================================== -->
+      <section id="casos-cotidianos" class="studio-section">
+        <span class="section-badge">🥐 Sala 6 de 8 • Ejemplos Cotidianos Paso a Paso</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">8 Casos de la Vida Real: Feria, Librería, Pastelería y Cine</h2>
+            <p class="section-subtitle">
+              Mira cómo aplicar las tablas hasta la del 12 para cobrar rápido y entregar el vuelto exacto con el Puente del Vuelto.
+            </p>
+          </div>
+          <a href="#pruebas" class="btn-kawaii btn-sm">Ir a las Pruebas Interactivas 🎮 ➡️</a>
+        </div>
+
+        <div id="daily-cases-grid" class="examples-grid"></div>
+
+        <div class="section-footer-links">
+          <a href="#tablero-kanban" class="btn-kawaii btn-yellow btn-sm">⬅️ Sala Anterior: Tablero Kanban</a>
+          <a href="#pruebas" class="btn-kawaii btn-sm">Siguiente: Pruebas de Tablas y Vuelto 🎮 ➡️</a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 7: LABORATORIO DE PRUEBAS (TABLAS 1-12, COBRO Y VUELTO - #pruebas)
+           ==================================================================== -->
+      <section id="pruebas" class="studio-section">
+        <span class="section-badge">🎮 Sala 7 de 8 • Entrenamiento Interactivo con XP</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Pruebas Kawaii: Tablas 1–12, Cobrar en la Tienda y Dar Vuelto</h2>
+            <p class="section-subtitle">
+              Elige cualquiera de los 4 niveles para poner a prueba tu velocidad mental y subir tu rango en la Tiendita Kawaii.
+            </p>
+          </div>
+        </div>
+
+        <!-- Selector de los 4 Modos de Prueba -->
+        <div class="quiz-mode-selector">
+          <button id="quiz-mode-btn-mode1" class="quiz-mode-btn active" onclick="StudioApp.selectQuizMode('mode1')">
+            <div style="font-family:'Fredoka',sans-serif; font-size:1.05rem; color:var(--pink-dark);">
+              🔢 Nivel 1: Trucos Tablas 1–12
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-muted); font-weight:700; margin-top:4px;">
+              Domina las tablas del 7, 8, 9, 11 y la docena del 12 usando Split &amp; Merge.
+            </p>
+          </button>
+
+          <button id="quiz-mode-btn-mode2" class="quiz-mode-btn" onclick="StudioApp.selectQuizMode('mode2')">
+            <div style="font-family:'Fredoka',sans-serif; font-size:1.05rem; color:#B27800;">
+              🛍️ Nivel 2: ¿Cuánto Cobro?
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-muted); font-weight:700; margin-top:4px;">
+              Multiplica cantidad de productos por precios chilenos ($300, $400, $500, $700).
+            </p>
+          </button>
+
+          <button id="quiz-mode-btn-mode3" class="quiz-mode-btn" onclick="StudioApp.selectQuizMode('mode3')">
+            <div style="font-family:'Fredoka',sans-serif; font-size:1.05rem; color:#0F5C35;">
+              💵 Nivel 3: El Puente del Vuelto
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-muted); font-weight:700; margin-top:4px;">
+              Calcula cuánto vuelto dar con billetes de $2.000, $5.000, $10.000 y $20.000.
+            </p>
+          </button>
+
+          <button id="quiz-mode-btn-mode4" class="quiz-mode-btn" onclick="StudioApp.selectQuizMode('mode4')">
+            <div style="font-family:'Fredoka',sans-serif; font-size:1.05rem; color:#5A2E98;">
+              🌟 Nivel 4: Examen Estrella (10 Retos)
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-muted); font-weight:700; margin-top:4px;">
+              Venta completa: calcula el Total y el Vuelto para llegar al rango Leyenda.
+            </p>
+          </button>
+        </div>
+
+        <!-- Arena Interactiva del Quiz -->
+        <div id="quiz-arena-container" class="quiz-arena"></div>
+
+        <div class="section-footer-links">
+          <a href="#casos-cotidianos" class="btn-kawaii btn-yellow btn-sm">⬅️ Sala Anterior: 8 Casos Cotidianos</a>
+          <a href="#progreso-kmm" class="btn-kawaii btn-sm">Siguiente: Mis Rangos y Métricas 🏆 ➡️</a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 8: PROGRESO, MÉTRICAS & RANGOS KAWAII (#progreso-kmm)
+           ==================================================================== -->
+      <section id="progreso-kmm" class="studio-section">
+        <span class="section-badge">🏆 Sala 8 de 8 • Rangos y Estadísticas en Tablas y Ventas</span>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Tu Evolución en la Tiendita Kawaii (Rangos N0 a N5)</h2>
+            <p class="section-subtitle">
+              Observa cómo mejora tu tiempo al cobrar y dar vuelto a medida que aplicas tus Fichas Kawaii.
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-grid" style="margin-bottom:24px;">
+          <div style="background:var(--surface-soft); border:3px solid #F3C6DC; border-radius:var(--radius-md); padding:20px;">
+            <h3 style="color:var(--pink-dark); font-size:1.25rem; margin-bottom:10px;">
+              📊 Tus Estadísticas en la Caja Registradora
+            </h3>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:10px; margin-bottom:16px;">
+              <div style="background:#FFF; border:2px solid #FFB3D1; border-radius:14px; padding:10px; text-align:center;">
+                <div style="font-size:0.75rem; font-weight:800; color:var(--text-muted);">⏱️ TIEMPO PROMEDIO</div>
+                <div id="metric-avg-leadtime" style="font-family:'Fredoka',sans-serif; font-size:1.4rem; color:var(--pink-dark);">8.3 seg</div>
+              </div>
+              <div style="background:#FFF; border:2px solid #4CC98A; border-radius:14px; padding:10px; text-align:center;">
+                <div style="font-size:0.75rem; font-weight:800; color:var(--text-muted);">🛍️ VENTAS RESUELTAS</div>
+                <div id="metric-delivery-rate" style="font-family:'Fredoka',sans-serif; font-size:1.4rem; color:#0F5C35;">0 ventas</div>
+              </div>
+              <div style="background:#FFF; border:2px solid #F4B942; border-radius:14px; padding:10px; text-align:center;">
+                <div style="font-size:0.75rem; font-weight:800; color:var(--text-muted);">🚦 FLUJO DE CAJA</div>
+                <div style="font-family:'Fredoka',sans-serif; font-size:1.4rem; color:#7A5200;">WIP = 1</div>
+              </div>
+            </div>
+
+            <div style="font-size:0.85rem; font-weight:800; color:var(--text-main); margin-bottom:8px;">
+              📈 Gráfico de Velocidad (Segundos por cada reto de tabla o vuelto):
+            </div>
+            <div id="lead-time-bars" style="display:flex; align-items:flex-end; gap:8px; background:#FFF; padding:14px; border-radius:14px; border:2px dashed #F3C6DC;"></div>
+          </div>
+
+          <div class="hero-illustration-box">
+            <img src="assets/kmm-mascot-badges.jpg" alt="Mascotas Kawaii celebrando los rangos en la Tiendita" />
+            <div style="margin-top:8px; font-family:'Fredoka',sans-serif; font-size:0.9rem; color:#5A2E98;">
+              🏆 ¡Conviértete en Estrella de la Tiendita Kawaii (N5)!
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-size:1.3rem; color:var(--text-main);">
+          🌟 Escalera de Rangos Kawaii en Ventas y Tablas (N0 – N5):
+        </h3>
+        <div id="kmm-levels-grid" class="kmm-ladder"></div>
+
+        <!-- Bitácora de Trucos de la Tiendita -->
+        <div style="margin-top:24px; background:linear-gradient(135deg,#FFFDF2,#FFF0F6); border:3px solid #FFD166; border-radius:var(--radius-md); padding:20px;">
+          <h4 style="color:#7A5200; font-size:1.15rem; margin-bottom:6px;">
+            📔 Mi Bitácora de Trucos de la Tiendita
+          </h4>
+          <p style="font-size:0.88rem; font-weight:700; color:var(--text-muted); margin-bottom:12px;">
+            Escribe qué truco de las tablas (1 al 12) o del Puente del Vuelto te pareció más fácil hoy:
+          </p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;">
+            <input id="reflection-input" type="text" class="kawaii-input" style="flex:1; min-width:240px;"
+                   placeholder="Ej: Para la tabla del 12 sumo ×10 más ×2 y sale al tiro..." />
+            <button class="btn-kawaii btn-sm" onclick="StudioApp.addReflection()">
+              💌 Guardar Nota (+10 XP)
+            </button>
+          </div>
+          <div id="reflections-list" style="display:flex; flex-direction:column; gap:8px;"></div>
+        </div>
+
+        <div class="section-footer-links">
+          <a href="#pruebas" class="btn-kawaii btn-yellow btn-sm">⬅️ Volver a las Pruebas</a>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="index.html" class="btn-kawaii btn-lavender btn-sm">🏠 Volver al Portal Principal</a>
+            <a href="grandes-numeros.html" class="btn-kawaii btn-sm">🌸 Ir a Módulo 1: Grandes Números (1.570.000 × 2)</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Scripts de la Tiendita -->
+  <script src="js/tiendita-data.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/video-player.js"></script>
+  <script src="js/kanban-board.js"></script>
+  <script src="js/tiendita-app.js"></script>
+</body>
+</html>

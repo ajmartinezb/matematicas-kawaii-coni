@@ -1,0 +1,1699 @@
+/* ==========================================================================
+   KAWAII KANBAN MATH STUDIO PARA CONI 🌸✨
+   Diseño Pastel Kawaii inspirado en The Official Guide to Kanban & KMM
+   ========================================================================== */
+
+:root {
+  /* Paleta Kawaii Pastel */
+  --bg-cream: #FFF9FB;
+  --bg-pattern: #FFF0F6;
+  --surface-white: #FFFFFF;
+  --surface-soft: #FFF5F9;
+
+  /* Colores de Fichas Kanban (VZ2.2: Colores por tipo de trabajo / valor posicional) */
+  --card-millions-bg: #FFD6E8;
+  --card-millions-border: #FF7EB3;
+  --card-millions-text: #8A1C4A;
+
+  --card-hundred-k-bg: #FFF3B0;
+  --card-hundred-k-border: #F4B942;
+  --card-hundred-k-text: #7A5200;
+
+  --card-ten-k-bg: #C1F7DC;
+  --card-ten-k-border: #4CC98A;
+  --card-ten-k-text: #0F5C35;
+
+  --card-thousands-bg: #E2D4F0;
+  --card-thousands-border: #A882DD;
+  --card-thousands-text: #46237A;
+
+  --card-hundreds-bg: #FFD8BE;
+  --card-hundreds-border: #FF975A;
+  --card-hundreds-text: #7C3200;
+
+  --card-zeros-bg: #D0EFFF;
+  --card-zeros-border: #5BC0BE;
+  --card-zeros-text: #0D4F6C;
+
+  /* Acentos Kawaii */
+  --pink-primary: #FF6B9E;
+  --pink-dark: #E0487D;
+  --pink-light: #FFE3EE;
+  --mint-primary: #4ECDC4;
+  --mint-light: #E0FAF8;
+  --lavender-primary: #9B72CF;
+  --lavender-light: #F2EAFA;
+  --yellow-primary: #FFD166;
+  --yellow-light: #FFF8E1;
+  --coral-blocker: #FF6B6B;
+
+  /* Texto */
+  --text-main: #4A3548;
+  --text-muted: #826A80;
+  --text-light: #B098AE;
+
+  /* Bordes y Sombras Kawaii */
+  --border-kawaii: 3px solid #F3C6DC;
+  --border-bold: 3px solid #4A3548;
+  --radius-sm: 14px;
+  --radius-md: 22px;
+  --radius-lg: 30px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 8px 24px rgba(255, 107, 158, 0.14);
+  --shadow-sticker: 0 5px 0px #F0B6D0;
+  --shadow-sticker-hover: 0 8px 0px #E598BC;
+  --shadow-card: 0 6px 0px rgba(74, 53, 72, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-cream);
+  background-image: 
+    radial-gradient(#FFD6E8 2px, transparent 2px),
+    radial-gradient(#C1F7DC 2px, var(--bg-cream) 2px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-kawaii {
+  font-family: 'Fredoka', 'Nunito', cursive, sans-serif;
+  letter-spacing: 0.3px;
+}
+
+/* ==========================================================================
+   HEADER Y NAVEGACIÓN MULTI-LINK DEL ESTUDIO
+   ========================================================================== */
+.top-banner {
+  background: linear-gradient(90deg, #FF85B3 0%, #B388EB 50%, #5BC0BE 100%);
+  color: #fff;
+  text-align: center;
+  padding: 8px 16px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.top-banner a {
+  color: #FFF3B0;
+  text-decoration: underline;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.studio-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 4px solid #FFD6E8;
+  box-shadow: 0 4px 20px rgba(255, 107, 158, 0.1);
+}
+
+.header-inner {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+.brand-mascot {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #FFD6E8, #FFF3B0);
+  border-radius: 50%;
+  border: 3px solid #FF6B9E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  box-shadow: 0 3px 0 #FF6B9E;
+  animation: floatBounce 3s ease-in-out infinite;
+}
+
+.brand-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--pink-dark);
+  line-height: 1.1;
+}
+
+.brand-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+/* Estadísticas Rápidas de Coni en el Header */
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.stat-pill {
+  background: var(--surface-soft);
+  border: 2px solid #FFD6E8;
+  border-radius: var(--radius-pill);
+  padding: 5px 14px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 107, 158, 0.2);
+}
+
+.stat-pill.kmm-badge {
+  background: var(--lavender-light);
+  border-color: var(--lavender-primary);
+  color: #5A2E98;
+}
+
+.sound-btn {
+  background: var(--yellow-light);
+  border: 2px solid var(--yellow-primary);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #7A5200;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sound-btn:hover {
+  transform: scale(1.05);
+  background: var(--yellow-primary);
+}
+
+/* Barra de Links Internos del Estudio */
+.studio-nav {
+  background: #FFF5F9;
+  border-top: 2px dashed #FFD6E8;
+  padding: 8px 16px;
+}
+
+.nav-links-container {
+  max-width: 1340px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 15px;
+  border-radius: var(--radius-pill);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  background: #FFFFFF;
+  border: 2px solid #F5CCE0;
+  white-space: nowrap;
+  box-shadow: 0 3px 0 #F5CCE0;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+  background: var(--pink-light);
+  border-color: var(--pink-primary);
+  box-shadow: 0 5px 0 #FF9EBF;
+}
+
+.nav-link.active {
+  background: var(--pink-primary);
+  color: #FFFFFF;
+  border-color: var(--pink-dark);
+  box-shadow: 0 4px 0 var(--pink-dark);
+}
+
+/* ==========================================================================
+   LAYOUT PRINCIPAL CON MAPA DE LINKS LATERAL + CONTENIDO
+   ========================================================================== */
+.studio-layout {
+  max-width: 1340px;
+  margin: 24px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .studio-layout {
+    grid-template-columns: 1fr;
+  }
+  .studio-sidebar {
+    position: static !important;
+  }
+}
+
+/* Sidebar de Links Rápidos y Reglas Explícitas Kanban (XP0.1) */
+.studio-sidebar {
+  position: sticky;
+  top: 138px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sidebar-card {
+  background: var(--surface-white);
+  border: var(--border-kawaii);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  box-shadow: var(--shadow-sticker);
+}
+
+.sidebar-card h3 {
+  font-size: 1.05rem;
+  color: var(--pink-dark);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quick-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.quick-links-list a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 0.88rem;
+  background: var(--surface-soft);
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.quick-links-list a:hover,
+.quick-links-list a.active {
+  background: var(--pink-light);
+  border-color: var(--pink-primary);
+  color: var(--pink-dark);
+  transform: translateX(4px);
+}
+
+/* Políticas Explícitas (Make Policies Explicit - XP) en Sidebar */
+.explicit-policies-box {
+  background: linear-gradient(180deg, #FFFDF2 0%, #FFF5D6 100%);
+  border: 3px solid #FFD166;
+  box-shadow: 0 5px 0 #F4B942;
+}
+
+.policy-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.83rem;
+  margin-bottom: 9px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #F4B942;
+  color: #6B4800;
+  font-weight: 700;
+}
+
+.policy-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* ==========================================================================
+   SECCIONES DEL ESTUDIO (VISTAS Y MÓDULOS)
+   ========================================================================== */
+.studio-main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 0;
+}
+
+.studio-section {
+  background: var(--surface-white);
+  border: var(--border-kawaii);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-soft), var(--shadow-sticker);
+  position: relative;
+  scroll-margin-top: 145px;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--pink-light);
+  color: var(--pink-dark);
+  border: 2px solid #FFB3D1;
+  margin-bottom: 10px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 3px dashed #FFE0EE;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   HERO DE BIENVENIDA PARA CONI
+   ========================================================================== */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.coni-welcome-bubble {
+  background: linear-gradient(135deg, #FFF0F6 0%, #F3E8FF 100%);
+  border: 3px solid #FF9EBF;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin: 16px 0;
+  position: relative;
+}
+
+.problem-highlight-pill {
+  display: inline-block;
+  background: #FFF3B0;
+  border: 2px solid #F4B942;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  color: #7A5200;
+  font-size: 1.1rem;
+}
+
+.hero-illustration-box {
+  background: linear-gradient(145deg, #FFE5F1, #E2FCEF, #EDE2FF);
+  border: 3px solid #FF85B3;
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  text-align: center;
+  box-shadow: var(--shadow-sticker);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-illustration-box img {
+  width: 100%;
+  max-height: 310px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 3px solid #FFFFFF;
+}
+
+/* Tarjetas de Navegación del Estudio en Inicio */
+.studio-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.hub-link-card {
+  background: var(--surface-soft);
+  border: 3px solid #F5CCE0;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-decoration: none;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 5px 0 #F5CCE0;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.hub-link-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--pink-primary);
+  box-shadow: 0 8px 0 #FF9EBF;
+  background: #FFFFFF;
+}
+
+.hub-card-icon {
+  font-size: 2rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  border: 2px solid #FFD6E8;
+}
+
+.hub-link-card h4 {
+  font-size: 1.08rem;
+  color: var(--pink-dark);
+}
+
+.hub-link-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.hub-card-cta {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.85rem;
+  color: var(--pink-primary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ==========================================================================
+   FICHAS KAWAII KANBAN (TICKETS DE COLORES VZ0.2 / VZ2.2)
+   ========================================================================== */
+.kawaii-ticket {
+  border-radius: 18px;
+  padding: 14px 16px;
+  position: relative;
+  font-family: 'Fredoka', sans-serif;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s;
+  user-select: none;
+}
+
+.kawaii-ticket:hover {
+  transform: translateY(-4px) rotate(-1deg);
+}
+
+.kawaii-ticket.ticket-millions {
+  background: var(--card-millions-bg);
+  border: 3px solid var(--card-millions-border);
+  color: var(--card-millions-text);
+}
+
+.kawaii-ticket.ticket-hundred-k {
+  background: var(--card-hundred-k-bg);
+  border: 3px solid var(--card-hundred-k-border);
+  color: var(--card-hundred-k-text);
+}
+
+.kawaii-ticket.ticket-ten-k {
+  background: var(--card-ten-k-bg);
+  border: 3px solid var(--card-ten-k-border);
+  color: var(--card-ten-k-text);
+}
+
+.kawaii-ticket.ticket-thousands {
+  background: var(--card-thousands-bg);
+  border: 3px solid var(--card-thousands-border);
+  color: var(--card-thousands-text);
+}
+
+.kawaii-ticket.ticket-hundreds {
+  background: var(--card-hundreds-bg);
+  border: 3px solid var(--card-hundreds-border);
+  color: var(--card-hundreds-text);
+}
+
+.kawaii-ticket.ticket-zeros {
+  background: var(--card-zeros-bg);
+  border: 3px solid var(--card-zeros-border);
+  color: var(--card-zeros-text);
+}
+
+.ticket-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.76rem;
+  font-weight: 700;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+
+.ticket-number {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin: 4px 0;
+}
+
+.ticket-subtext {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+/* Cinta adhesiva kawaii arriba de cada ficha */
+.kawaii-ticket::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 48px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   METÁFORA KAN-BAHN (AUTOPISTA KAWAII INTERACTIVA)
+   ========================================================================== */
+.kanbahn-simulator {
+  background: linear-gradient(180deg, #E6F8FF 0%, #F4FBF7 100%);
+  border: 3px solid #5BC0BE;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.kanbahn-road {
+  background: #4A4453;
+  border-radius: 18px;
+  padding: 18px;
+  margin: 16px 0;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #FFD166;
+}
+
+.road-lane {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 74px;
+  border-bottom: 3px dashed rgba(255, 255, 255, 0.45);
+  padding: 8px 0;
+  flex-wrap: wrap;
+}
+
+.road-lane:last-child {
+  border-bottom: none;
+}
+
+.kawaii-car {
+  padding: 8px 14px;
+  border-radius: 16px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.25);
+  transition: all 0.5s ease;
+}
+
+.traffic-light-badge {
+  background: #2B2730;
+  border: 2px solid #FFF;
+  border-radius: 12px;
+  padding: 6px 12px;
+  color: #FFF;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ==========================================================================
+   CASO ESTRELLA 1.570.000 x 2 (TABS DE 3 ESTRATEGIAS)
+   ========================================================================== */
+.strategy-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.strategy-tab-btn {
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: 3px solid #F3C6DC;
+  background: var(--surface-soft);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.strategy-tab-btn.active {
+  background: var(--pink-primary);
+  color: #FFF;
+  border-color: var(--pink-dark);
+  box-shadow: 0 4px 0 var(--pink-dark);
+}
+
+.Star-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.merge-result-banner {
+  background: linear-gradient(135deg, #FFF3B0 0%, #FFD6E8 50%, #C1F7DC 100%);
+  border: 3px solid #FF6B9E;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+  margin-top: 18px;
+  box-shadow: var(--shadow-sticker);
+}
+
+.merge-equation {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--pink-dark);
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   REPRODUCTOR DE VIDEO ANIMADO KAWAII (#video-estudio)
+   ========================================================================== */
+.kawaii-video-wrapper {
+  background: #2D2235;
+  border: 5px solid #FF85B3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 0 #E0487D;
+}
+
+.video-stage {
+  background: linear-gradient(180deg, #FFF5F9 0%, #F2EAFA 60%, #E6FAF5 100%);
+  min-height: 390px;
+  padding: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.video-top-hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.video-chapter-pill {
+  background: var(--pink-primary);
+  color: #FFF;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.88rem;
+  box-shadow: 0 3px 0 var(--pink-dark);
+}
+
+.video-animation-canvas {
+  margin: 18px 0;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-subtitle-box {
+  background: rgba(74, 53, 72, 0.92);
+  color: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
+  border: 2px solid #FFD166;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.video-controls-bar {
+  background: #3A2C44;
+  padding: 14px 20px;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-progress-track {
+  width: 100%;
+  height: 12px;
+  background: #594666;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF85B3, #FFD166, #4ECDC4);
+  width: 20%;
+  transition: width 0.3s ease;
+}
+
+.video-buttons-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.video-chapter-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.chapter-chip {
+  background: #523F60;
+  color: #FFE3EE;
+  border: 1.5px solid #FF85B3;
+  border-radius: var(--radius-pill);
+  padding: 5px 11px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chapter-chip.active,
+.chapter-chip:hover {
+  background: #FF6B9E;
+  color: #FFF;
+}
+
+/* ==========================================================================
+   TABLERO KANBAN INTERACTIVO (#tablero-kanban)
+   ========================================================================== */
+.kanban-controls-panel {
+  background: var(--surface-soft);
+  border: 3px solid #FFD6E8;
+  border-radius: var(--radius-md);
+  padding: 18px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preset-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.preset-chip {
+  background: #FFF;
+  border: 2px solid #FF9EBF;
+  border-radius: var(--radius-pill);
+  padding: 6px 13px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.88rem;
+  color: var(--pink-dark);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.preset-chip:hover,
+.preset-chip.active {
+  background: var(--pink-primary);
+  color: #FFF;
+}
+
+.custom-math-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.kawaii-input {
+  padding: 9px 14px;
+  border-radius: var(--radius-sm);
+  border: 3px solid #F3C6DC;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  color: var(--text-main);
+  background: #FFF;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.kawaii-input:focus {
+  border-color: var(--pink-primary);
+}
+
+.kanban-board-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+
+@media (max-width: 1100px) {
+  .kanban-board-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .kanban-board-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kanban-column {
+  background: #FFF8FB;
+  border: 3px solid #F5CCE0;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kanban-column.wip-column {
+  background: linear-gradient(180deg, #FFFDF0 0%, #FFF5D6 100%);
+  border-color: #F4B942;
+}
+
+.kanban-column.done-column {
+  background: linear-gradient(180deg, #F2FBF7 0%, #E0FAF0 100%);
+  border-color: #4CC98A;
+}
+
+.kanban-col-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 2px dashed rgba(74, 53, 72, 0.15);
+}
+
+.kanban-col-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Círculo de Límite WIP como en la página 12 de The Official Guide to Kanban */
+.wip-circle-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #FFF;
+  border: 3px solid var(--pink-primary);
+  color: var(--pink-dark);
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wip-circle-badge.limit-one {
+  border-color: #E0487D;
+  background: #FFE3EE;
+  width: auto;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+}
+
+.pull-criteria-footer {
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1.5px dashed #D8B4C8;
+  border-radius: 10px;
+  padding: 7px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Parking Lot (VZ3.6) */
+.parking-lot-bar {
+  margin-top: 16px;
+  background: linear-gradient(90deg, #E3F6FF 0%, #F0FAFF 100%);
+  border: 3px dashed #5BC0BE;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Alerta WIP Limit Kawaii */
+.wip-alert-banner {
+  background: #FFE8EC;
+  border: 3px solid var(--coral-blocker);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  color: #9E1B32;
+  font-weight: 800;
+  display: none;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  animation: shakeKawaii 0.4s ease;
+}
+
+.wip-alert-banner.visible {
+  display: flex;
+}
+
+/* ==========================================================================
+   BOTONES KAWAII
+   ========================================================================== */
+.btn-kawaii {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.96rem;
+  font-weight: 600;
+  border: 3px solid var(--pink-dark);
+  background: var(--pink-primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 0 var(--pink-dark);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.18s ease;
+}
+
+.btn-kawaii:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--pink-dark);
+  background: #FF548E;
+}
+
+.btn-kawaii:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--pink-dark);
+}
+
+.btn-kawaii.btn-mint {
+  background: var(--mint-primary);
+  border-color: #2A9D8F;
+  box-shadow: 0 4px 0 #2A9D8F;
+}
+
+.btn-kawaii.btn-lavender {
+  background: var(--lavender-primary);
+  border-color: #6C43A3;
+  box-shadow: 0 4px 0 #6C43A3;
+}
+
+.btn-kawaii.btn-yellow {
+  background: var(--yellow-primary);
+  border-color: #D99B26;
+  color: #5C3D00;
+  box-shadow: 0 4px 0 #D99B26;
+}
+
+.btn-kawaii.btn-sm {
+  padding: 6px 14px;
+  font-size: 0.84rem;
+}
+
+/* ==========================================================================
+   EJEMPLOS GUIADOS (#ejemplos)
+   ========================================================================== */
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 18px;
+}
+
+.example-card {
+  background: var(--surface-soft);
+  border: 3px solid #F3C6DC;
+  border-radius: var(--radius-md);
+  padding: 18px;
+  box-shadow: 0 5px 0 #F0B6D0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.example-difficulty {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background: #FFF;
+  border: 2px solid #FFB3D1;
+  color: var(--pink-dark);
+}
+
+/* ==========================================================================
+   ZONA DE PRUEBAS Y QUIZZES INTERACTIVOS (#pruebas)
+   ========================================================================== */
+.quiz-mode-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.quiz-mode-btn {
+  background: var(--surface-soft);
+  border: 3px solid #F3C6DC;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Nunito', sans-serif;
+}
+
+.quiz-mode-btn.active {
+  background: var(--pink-light);
+  border-color: var(--pink-primary);
+  box-shadow: 0 5px 0 #FF9EBF;
+}
+
+.quiz-arena {
+  background: linear-gradient(180deg, #FFF9FC 0%, #F7F2FF 100%);
+  border: 3px solid #D9B8F3;
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  box-shadow: 0 8px 0 #C69CE8;
+}
+
+.quiz-question-display {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 2.2rem;
+  color: var(--pink-dark);
+  text-align: center;
+  margin: 16px 0;
+  padding: 18px;
+  background: #FFFFFF;
+  border: 3px dashed #FF9EBF;
+  border-radius: var(--radius-md);
+}
+
+.quiz-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.quiz-option-btn {
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 3px solid #E2D4F0;
+  background: #FFFFFF;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.25rem;
+  color: var(--text-main);
+  cursor: pointer;
+  box-shadow: 0 4px 0 #E2D4F0;
+  transition: all 0.2s;
+}
+
+.quiz-option-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  border-color: var(--pink-primary);
+  background: var(--pink-light);
+}
+
+.quiz-option-btn.correct {
+  background: #C1F7DC;
+  border-color: #2E9F65;
+  color: #0B4F2C;
+  box-shadow: 0 4px 0 #2E9F65;
+}
+
+.quiz-option-btn.wrong {
+  background: #FFD6D6;
+  border-color: #E04848;
+  color: #7A1414;
+}
+
+/* ==========================================================================
+   NIVELES DE MADUREZ KMM (ML0 A ML6) Y MÉTRICAS (#progreso-kmm)
+   ========================================================================== */
+.kmm-ladder {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.kmm-level-card {
+  background: var(--surface-soft);
+  border: 3px solid #E2D4F0;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  position: relative;
+  opacity: 0.65;
+  transition: all 0.25s;
+}
+
+.kmm-level-card.unlocked {
+  opacity: 1;
+  background: #FFFFFF;
+  border-color: #FF85B3;
+  box-shadow: 0 5px 0 #FFB3D1;
+}
+
+.kmm-level-card.current-level {
+  border-color: #F4B942;
+  background: linear-gradient(180deg, #FFFDF4 0%, #FFF4C8 100%);
+  box-shadow: 0 6px 0 #F4B942;
+}
+
+/* Navegación Inferior entre Secciones (Múltiples Links Internos) */
+.section-footer-links {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 2px dashed #FFD6E8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Animaciones Kawaii */
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes shakeKawaii {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* ==========================================================================
+   CERTIFICADO OFICIAL KAWAII IMPRIMIBLE
+   ========================================================================== */
+.kawaii-certificate-card {
+  background: linear-gradient(135deg, #FFFDF4 0%, #FFF0F6 50%, #E8FBF8 100%);
+  border: 6px double #FF6B9E;
+  border-radius: 28px;
+  padding: 28px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 0 #E0487D, 0 14px 30px rgba(255, 107, 158, 0.2);
+  max-width: 760px;
+  margin: 20px auto;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.cert-corner-deco {
+  font-size: 1.8rem;
+  position: absolute;
+}
+.cert-corner-deco.tl { top: 12px; left: 16px; }
+.cert-corner-deco.tr { top: 12px; right: 16px; }
+.cert-corner-deco.bl { bottom: 12px; left: 16px; }
+.cert-corner-deco.br { bottom: 12px; right: 16px; }
+
+.cert-signatures {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 2px dashed #FFB3D1;
+}
+
+.cert-sig-block {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.cert-sig-line {
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 1.05rem;
+  color: var(--pink-dark);
+  border-bottom: 2px solid #FF85B3;
+  padding-bottom: 3px;
+  margin-bottom: 4px;
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body {
+    background: #FFFFFF !important;
+    background-image: none !important;
+  }
+  .top-banner,
+  .studio-header,
+  .studio-sidebar,
+  #confetti-canvas,
+  #kawaii-toast,
+  .no-print {
+    display: none !important;
+  }
+  body.printing-certificate .studio-section:not(#certificado-imprimible-section) {
+    display: none !important;
+  }
+  body.printing-certificate .studio-layout {
+    display: block !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body.printing-certificate #certificado-imprimible-section {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   ESTILOS ADICIONALES PARA PÁGINA HERMANA: TIENDITA KAWAII & TABLAS 1-12 🛍️💵
+   ========================================================================== */
+.sister-page-pill {
+  background: linear-gradient(135deg, #FFF3B0 0%, #FFD6E8 100%);
+  color: #8A1C4A !important;
+  border: 2px solid #FF6B9E;
+  padding: 4px 14px;
+  border-radius: 999px;
+  text-decoration: none !important;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 3px 0 #E0487D;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sister-page-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #E0487D;
+}
+
+.tables-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.table-num-btn {
+  padding: 12px 10px;
+  border-radius: 18px;
+  border: 3px solid #F3C6DC;
+  background: var(--surface-soft);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  box-shadow: 0 4px 0 #F0B6D0;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.table-num-btn span.table-sub-badge {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.table-num-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--pink-primary);
+  background: var(--pink-light);
+}
+
+.table-num-btn.active {
+  background: var(--pink-primary);
+  color: #FFF;
+  border-color: var(--pink-dark);
+  box-shadow: 0 4px 0 var(--pink-dark);
+}
+
+.table-num-btn.active span.table-sub-badge {
+  color: #FFF3B0;
+}
+
+.multiplication-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.mult-fact-card {
+  background: #FFFFFF;
+  border: 3px solid #FFD6E8;
+  border-radius: 16px;
+  padding: 12px 14px;
+  text-align: center;
+  box-shadow: 0 4px 0 #F5CCE0;
+  transition: transform 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+
+.mult-fact-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--pink-primary);
+}
+
+.mult-fact-card.highlight-trick {
+  background: linear-gradient(180deg, #FFFDF2 0%, #FFF3B0 100%);
+  border-color: #F4B942;
+  box-shadow: 0 4px 0 #E0A82E;
+}
+
+/* Simulador de Caja Registradora / Pos / Tiendita Kawaii */
+.pos-simulator-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .pos-simulator-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.catalog-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 10px;
+}
+
+.product-btn-card {
+  background: #FFFFFF;
+  border: 3px solid #F3C6DC;
+  border-radius: 16px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 0 #F0B6D0;
+}
+
+.product-btn-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--pink-primary);
+}
+
+.product-btn-card.selected {
+  background: var(--pink-light);
+  border-color: var(--pink-dark);
+  box-shadow: 0 4px 0 var(--pink-dark);
+}
+
+.pos-receipt-box {
+  background: linear-gradient(180deg, #FFFDF7 0%, #FFF5FA 100%);
+  border: 3px dashed #FF85B3;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: inset 0 0 0 4px #FFFFFF, var(--shadow-card);
+}
+
+.chilean-bill-chip {
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 2.5px solid transparent;
+  transition: all 0.2s;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.14);
+}
+
+.chilean-bill-chip:hover {
+  transform: translateY(-2px);
+}
+
+.chilean-bill-chip.active {
+  transform: scale(1.06);
+  outline: 3px solid var(--pink-dark);
+}
+
+.bill-1000 { background: #D8F8E1; border-color: #2E9F65; color: #0B4F2C; }
+.bill-2000 { background: #EAD8F8; border-color: #8A4FFF; color: #431B7A; }
+.bill-5000 { background: #FFD6E0; border-color: #E0487D; color: #8A1C4A; }
+.bill-10000 { background: #D0E8FF; border-color: #2B7CD3; color: #0D3C6E; }
+.bill-20000 { background: #FFE4C4; border-color: #E07A2E; color: #7C3800; }
+
+.change-hop-bridge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: #FFFFFF;
+  border: 2px solid #4CC98A;
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.hop-step-pill {
+  background: #E6FAF5;
+  border: 2px solid #4CC98A;
+  border-radius: 12px;
+  padding: 6px 12px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.95rem;
+  color: #0F5C35;
+}
+
+/* ==========================================================================
+   PORTAL PRINCIPAL ESCALABLE (HUB MULTI-PÁGINAS DE MATEMÁTICAS KAWAII) 🌸🚀
+   ========================================================================== */
+.portal-container {
+  max-width: 1240px;
+  margin: 28px auto 48px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.portal-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.portal-module-card {
+  background: #FFFFFF;
+  border: 4px solid #F3C6DC;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--shadow-soft), 0 8px 0 #F0B6D0;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s, border-color 0.25s;
+  text-decoration: none;
+  color: var(--text-main);
+  position: relative;
+  overflow: hidden;
+}
+
+.portal-module-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--pink-primary);
+  box-shadow: 0 12px 28px rgba(255, 107, 158, 0.24), 0 10px 0 #E0487D;
+}
+
+.portal-module-card.module-mint {
+  border-color: #8CE0B8;
+  box-shadow: var(--shadow-soft), 0 8px 0 #4CC98A;
+}
+
+.portal-module-card.module-mint:hover {
+  border-color: #2E9F65;
+  box-shadow: 0 12px 28px rgba(76, 201, 138, 0.24), 0 10px 0 #2E9F65;
+}
+
+.portal-module-card.module-upcoming {
+  background: linear-gradient(180deg, #FFFDF7 0%, #F9F3FF 100%);
+  border: 3px dashed #C69CE8;
+  box-shadow: 0 6px 0 #E2D4F0;
+}
+
+.portal-card-thumb {
+  width: 100%;
+  height: 195px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 3px solid #FFE3EE;
+}
+
+.portal-tag-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.portal-tag-pill {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--pink-light);
+  color: var(--pink-dark);
+  border: 2px solid #FFB3D1;
+}
+
+.portal-tag-pill.mint {
+  background: #E2FCEF;
+  color: #0F5C35;
+  border-color: #4CC98A;
+}
+
+.portal-tag-pill.yellow {
+  background: #FFF3B0;
+  color: #7A5200;
+  border-color: #F4B942;
+}
+
+
+
