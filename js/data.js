@@ -10,7 +10,7 @@ const StudioData = {
   videoChapters: [
     {
       id: 0,
-      audioFile: "",
+      audioFile: "assets/audio/video-cap-0.mp3",
       title: "Cap. 1: ¿Por qué nos bloqueamos con 1.570.000 × 2?",
       mascot: "🐱 Mochi la Gatita",
       durationMs: 7500,
@@ -20,7 +20,7 @@ const StudioData = {
     },
     {
       id: 1,
-      audioFile: "",
+      audioFile: "assets/audio/video-cap-1.mp3",
       title: "Cap. 2: Poder 1 y 2 — Fichas de Colores y Límite WIP = 1",
       mascot: "🐰 Usagi el Conejito",
       durationMs: 8000,
@@ -30,7 +30,7 @@ const StudioData = {
     },
     {
       id: 2,
-      audioFile: "",
+      audioFile: "assets/audio/video-cap-2.mp3",
       title: "Cap. 3: El Parking Lot de Ceros (Estacionamiento Mágico)",
       mascot: "🐼 Kuma el Panda",
       durationMs: 8000,
@@ -50,7 +50,7 @@ const StudioData = {
     },
     {
       id: 4,
-      audioFile: "",
+      audioFile: "assets/audio/video-cap-4.mp3",
       title: "Cap. 5: Merge Final y Entrega Exitosa = 3.140.000 🎉",
       mascot: "🌟 Todas las Mascotas",
       durationMs: 8000,
@@ -66,7 +66,7 @@ const StudioData = {
   guidedExamples: [
     {
       id: "ex-1",
-      audioFile: "",
+      audioFile: "assets/audio/ex-1.mp3",
       title: "El Reto Estrella de los Millones",
       number: 1570000,
       multiplier: 2,

@@ -150,7 +150,7 @@ const TienditaData = {
   videoChapters: [
     {
       id: 0,
-      audioFile: "",
+      audioFile: "assets/audio/tiendita-cap-0.mp3",
       title: "Cap. 1: ¿Por qué nos enredamos al cobrar y dar vuelto rápido?",
       mascot: "🐱 Mochi la Cajera",
       durationMs: 8500,
@@ -190,7 +190,7 @@ const TienditaData = {
     },
     {
       id: 4,
-      audioFile: "",
+      audioFile: "assets/audio/tiendita-cap-4.mp3",
       title: "Cap. 5: Venta Completa: 12 Huevos a $300 pagando con $5.000 🎉",
       mascot: "🌟 Equipo Tiendita Kawaii",
       durationMs: 9000,
